@@ -1,0 +1,5 @@
+file,status,raw_rows,normalized_rows,invalid_dates,duplicate_date_rows,unsorted_date_rows,rows_with_missing_ohlc,nonpositive_rows,high_below_low_rows,high_below_open_rows,high_below_close_rows,low_above_open_rows,low_above_close_rows,weekend_rows,first_date,last_date,calendar_gaps_over_7_days,largest_calendar_gap_days,columns,pair
+eurusd_d.csv,available,14270,14270,0,0,0,0,0,0,0,0,0,0,0,1971-01-04,2026-09-25,0,5,"Date,Open,High,Low,Close",EURUSD
+gbpusd_d.csv,available,5908,5908,0,0,0,0,0,0,0,0,0,0,0,2003-12-01,2026-09-24,0,4,"Date,Open,High,Low,Close",GBPUSD
+audusd_d.csv,available,5906,5906,0,0,0,0,0,0,0,0,0,0,0,2003-12-01,2026-09-24,0,4,"Date,Open,High,Low,Close",AUDUSD
+usdjpy_d.csv,available,5913,5913,0,0,0,0,0,0,0,0,0,0,0,2003-12-01,2026-09-24,0,4,"Date,Open,High,Low,Close",USDJPY

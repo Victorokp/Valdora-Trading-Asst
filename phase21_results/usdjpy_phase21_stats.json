@@ -1,0 +1,13 @@
+{
+  "trades": 101,
+  "win_rate": 30.693069306930692,
+  "gross_profit_R": 62.00000000000003,
+  "gross_loss_R": 70.00000000000009,
+  "profit_factor": 0.885714285714285,
+  "total_R": -8.000000000000032,
+  "average_R": -0.07920792079207953,
+  "median_R": -0.9999999999999974,
+  "maximum_losing_streak": 7,
+  "open_at_end_count": 0,
+  "maximum_drawdown": "PENDING_UNRESOLVED_EQUITY_CONVENTION"
+}

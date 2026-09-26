@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import builtins
 import unittest
+import unittest.mock
 from pathlib import Path
 
 import numpy as np
@@ -205,6 +207,36 @@ class Phase21MechanicsTests(unittest.TestCase):
         trades = p21.simulate_trades(frame, "EURUSD")
         self.assertTrue(trades.empty)
         self.assertTrue(np.isnan(float("nan")))
+
+    def test_csv_loader_preserves_ohlc_values(self) -> None:
+        """Regression: CSV columns must not be aligned against the DatetimeIndex.
+
+        The loader builds a DatetimeIndex from the Date column while the source
+        frame still carries a RangeIndex. Constructing the frame from raw pandas
+        Series silently aligns those indexes and produces all-NaN OHLC columns.
+        The loader must build columns positionally.
+        """
+        with unittest.mock.patch.object(
+            builtins, "open", unittest.mock.mock_open(
+                read_data=(
+                    "Date,Open,High,Low,Close\n"
+                    "2024-01-01,1.0,1.1,0.9,1.05\n"
+                    "2024-01-02,1.05,1.2,1.0,1.15\n"
+                )
+            )
+        ):
+            frame, audit = p21.load_ohlc_csv(Path("mock.csv"))
+        self.assertEqual(len(frame), 2)
+        self.assertEqual(audit["normalized_rows"], 2)
+        self.assertEqual(audit["rows_with_missing_ohlc"], 0)
+        self.assertEqual(audit["first_date"], "2024-01-01")
+        self.assertEqual(audit["last_date"], "2024-01-02")
+        self.assertAlmostEqual(float(frame["Close"].iloc[0]), 1.05)
+        self.assertAlmostEqual(float(frame["Close"].iloc[1]), 1.15)
+
+    def test_eurusd_maps_to_authoritative_eurusd_d_csv(self) -> None:
+        """Phase-21 must read the authoritative eurusd_d.csv dataset."""
+        self.assertEqual(p21.PAIR_FILES["EURUSD"], ("eurusd_d.csv",))
 
 
 if __name__ == "__main__":

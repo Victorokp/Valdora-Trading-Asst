@@ -44,8 +44,30 @@ Phase-21 core engine and must not be inferred from historical benchmarks.
 
 ## Current data availability
 
-- EUR/USD is available through `eurusd_daily.csv`.
-- GBP/USD is supported generically but unavailable until `gbpusd_d.csv` or
-  `gbpusd_daily.csv` is supplied.
-- AUD/USD and USD/JPY are also reported unavailable when their files are
-  absent.
+- EUR/USD uses the authoritative `eurusd_d.csv` (mechanical mapping correction;
+  the legacy `eurusd_daily.csv` remains in the repository but is not referenced).
+- GBP/USD, AUD/USD, and USD/JPY run from their committed `*_d.csv` datasets.
+
+## Mechanical corrections applied during Phase-21 execution
+
+1. **EUR/USD file mapping** — `PAIR_FILES["EURUSD"]` now points at the
+   authoritative `eurusd_d.csv` instead of the legacy `eurusd_daily.csv`.
+   Mapping only; no strategy mechanics, parameters, or rules were altered.
+2. **CSV loader positional construction** — the loader built a DatetimeIndex
+   from the Date column while constructing OHLC columns from raw pandas Series,
+   which silently index-aligned against the CSV RangeIndex and produced all-NaN
+   columns (engine could not execute; `normalized_rows: 0`). Columns are now
+   constructed positionally via numpy. Regression-tested.
+3. **Audit completeness** — the audit now reports unsorted-date rows, weekend
+   rows, high-vs-open/close violations, low-vs-open/close violations, and the
+   largest calendar gap, as required by the Phase-21 audit checklist.
+
+No strategy parameters, rules, filters, friction, ATR, stop/target, entry
+timing, or exit handling were modified.
+
+## Benchmark discipline
+
+Historical Phase-21 forensic benchmarks (trades/PF/Total R) are comparison
+targets only. They are not tolerance gates and never drive rule or parameter
+changes. Full observed-vs-benchmark comparison lives in
+`phase21_results/PHASE21_FULL_FORENSIC_REPORT.md`.
