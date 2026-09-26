@@ -1,0 +1,2 @@
+longest_winning_streak,longest_losing_streak,n_winning_clusters,n_losing_clusters,win_run_distribution,loss_run_distribution
+4,7,23,24,"{'1': 10, '2': 4, '3': 5, '4': 4}","{'1': 7, '2': 7, '3': 5, '4': 1, '5': 1, '7': 3}"

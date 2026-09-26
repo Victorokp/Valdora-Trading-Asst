@@ -1,0 +1,19 @@
+{
+  "source": "phase29/results/phase29_summary.json",
+  "source_sha256": "61e2e1c0b650511cd27aa40f2da4ceaa30f2fe85973d6093faa811b0abc11785",
+  "g_order_stress": {
+    "seed": 20290926,
+    "iterations": 10000,
+    "actual_maxDD": -12.0,
+    "median_maxDD": -9.0,
+    "p5_maxDD": -14.0,
+    "p1_maxDD": -17.0,
+    "p95_maxDD": -6.0,
+    "worst_simulated_maxDD": -24.911,
+    "p_worse_than_minus12R": 12.04,
+    "losing_streak_p50": 7,
+    "losing_streak_p95": 11,
+    "losing_streak_max": 21
+  },
+  "note": "Consumed read-only; no rerun, no re-seed."
+}
