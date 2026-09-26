@@ -1,0 +1,60 @@
+SPY RSI(14) BACKTEST — EXECUTION-AWARE REPORT
+Adjusted daily history: 1993-01-29 through 2026-09-24 (8,471 trading days).
+70/30 chronological split: development ends 2016-08-12; holdout starts 2016-08-15. Settings stayed fixed on both sides.
+No RSI parameter search was performed. Every comparison uses the same saved OHLC dataset and $10,000 initial capital.
+
+EXECUTION AND COST ASSUMPTIONS
+RSI is calculated through today's adjusted Close. A signal is queued at that close and filled only at the next trading day's Open; if that Open is missing, the signal is skipped.
+All OHLC fields are yfinance auto_adjust=True prices. Buy fill = quoted Open × (1 + slippage); buy cash debit = shares × buy fill × (1 + transaction-cost rate). Sell fill = quoted Open or stop quote × (1 - slippage); net sale proceeds = shares × sell fill × (1 - transaction-cost rate).
+The 5% stop is based on the slippage-adjusted entry fill. If Open gaps through the stop, exit at that Open; if Open is above the stop and Low crosses it, assume a stop-level quote, then apply sell slippage and fee. Daily bars cannot reveal the exact intraday path.
+Buy-and-hold buys fractional SPY shares at the period's first Open and liquidates at the final Close, with the same buy/sell cost and slippage. Open RSI positions are valued at end-of-day net liquidation value.
+Percentage sizing allocates 10%, 25%, or 50% of available cash including buy costs; fractional shares are permitted. No borrowing or leverage.
+Trade statistics use completed round trips and net P&L after both-side costs. Exposure is the percentage of sessions with shares held at the close. Missing prices are not filled or fabricated.
+
+A–H. DECISION REPORT — REFERENCE CASE: FIXED 10 SHARES, 0.05% COST + 0.05% SLIPPAGE PER SIDE
+A. Realistic execution: RSI net return is 29.11% over full history and 20.85% on holdout. It remains positive in absolute terms.
+B. Buy-and-hold: full RSI 29.11% vs SPY 3080.83% (-3051.73 pp); holdout RSI 20.85% vs SPY 311.66% (-290.81 pp). It did not beat the full-period benchmark.
+C. Market-period consistency: beat buy-and-hold in 0/3 fixed calendar windows.
+D. Evidence volume: 54 completed full-history trades; 18 on holdout.
+E. Full-history max drawdown: 6.70%; holdout max drawdown: 7.21%.
+F. Another research direction: No. The fixed RSI rule did not show a consistent advantage over buy-and-hold under this execution model.
+G. Next experiment: None recommended; do not run further RSI threshold or stop-loss searches on this evidence.
+H. Recommendation: abandon RSI(14)/buy<30/sell>70/5% stop as a buy-and-hold alternative rather than continuing to optimize it. This is a historical research conclusion, not a live-trading instruction.
+
+REFERENCE-CASE RESULTS BY PERIOD
+Period | RSI return | SPY return | Excess | Annualized | Max DD | Trades | Win% | Avg win | Avg loss | PF | Loss streak | Exposure
+full_history | 29.11% | 3080.83% | -3051.73 pp | 0.76% | 6.70% | 54 | 44.44% | $230.91 | $-87.70 | 2.11 | 7 | 23.27%
+development_70pct | 8.26% | 669.63% | -661.37 pp | 0.34% | 3.32% | 36 | 44.44% | $104.04 | $-41.94 | 1.98 | 7 | 24.02%
+holdout_30pct | 20.85% | 311.66% | -290.81 pp | 1.89% | 7.21% | 18 | 44.44% | $484.65 | $-179.23 | 2.16 | 4 | 21.52%
+2010-2015 | 5.03% | 104.54% | -99.51 pp | 0.82% | 1.33% | 6 | 66.67% | $149.09 | $-46.50 | 6.41 | 2 | 15.76%
+2016-2020 | 7.30% | 104.98% | -97.68 pp | 1.42% | 6.90% | 14 | 42.86% | $307.55 | $-139.41 | 1.65 | 4 | 31.69%
+2021-2026 | 14.43% | 120.25% | -105.82 pp | 2.38% | 7.66% | 6 | 50.00% | $734.40 | $-253.54 | 2.90 | 2 | 14.05%
+
+COST / SLIPPAGE SENSITIVITY — FULL HISTORY, FIXED 10 SHARES
+Cost and slippage rates are per side. Benchmark uses the same rates.
+Cost/side | Slippage/side | RSI return | SPY return | Excess | Trades
+0.00% | 0.00% | 39.32% | 3087.20% | -3047.88 pp | 54
+0.00% | 0.05% | 29.98% | 3084.02% | -3054.03 pp | 54
+0.00% | 0.10% | 29.27% | 3080.83% | -3051.56 pp | 54
+0.05% | 0.00% | 38.45% | 3084.02% | -3045.57 pp | 54
+0.05% | 0.05% | 29.11% | 3080.83% | -3051.73 pp | 54
+0.05% | 0.10% | 28.40% | 3077.65% | -3049.26 pp | 54
+0.10% | 0.00% | 37.57% | 3080.83% | -3043.26 pp | 54
+0.10% | 0.05% | 28.24% | 3077.65% | -3049.42 pp | 54
+0.10% | 0.10% | 27.52% | 3074.48% | -3046.95 pp | 54
+
+POSITION-SIZING SENSITIVITY — FULL HISTORY AND HOLDOUT, REFERENCE COST/SLIPPAGE
+Sizing | Period | RSI return | SPY return | Excess | Max DD | Trades | Exposure
+fixed_10_shares | full_history | 29.11% | 3080.83% | -3051.73 pp | 6.70% | 54 | 23.27%
+fixed_10_shares | holdout_30pct | 20.85% | 311.66% | -290.81 pp | 7.21% | 18 | 21.52%
+10pct_equity | full_history | 17.04% | 3080.83% | -3063.80 pp | 5.30% | 54 | 23.27%
+10pct_equity | holdout_30pct | 6.29% | 311.66% | -305.36 pp | 2.83% | 18 | 21.52%
+25pct_equity | full_history | 46.15% | 3080.83% | -3034.68 pp | 12.84% | 54 | 23.27%
+25pct_equity | holdout_30pct | 15.86% | 311.66% | -295.80 pp | 6.95% | 18 | 21.52%
+50pct_equity | full_history | 104.51% | 3080.83% | -2976.32 pp | 24.34% | 54 | 23.27%
+50pct_equity | holdout_30pct | 31.98% | 311.66% | -279.68 pp | 13.46% | 18 | 21.52%
+
+Saved full-precision adjusted OHLC snapshot: spy_prices.csv. Loaded the saved full-precision spy_prices.csv snapshot.
+Replay exactly with: uv run python main.py
+To fetch the latest available maximum history and replace the snapshot: uv run python main.py --refresh-data
+Saved the full scenario matrix (216 period/configuration rows) to results.csv.

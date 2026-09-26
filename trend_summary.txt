@@ -1,0 +1,58 @@
+SPY 50/200 MOVING-AVERAGE CROSSOVER — BACKTEST REPORT
+Adjusted SPY daily history: 1993-01-29 through 2026-09-24 (8,471 trading days).
+Loaded the existing full-precision spy_prices.csv snapshot.
+Fixed chronological split: development ends 2016-08-12; untouched holdout begins 2016-08-15. No parameters were selected on the holdout.
+No moving-average parameter sweep was run. All configurations use the same fixed 50/200 crossover and $10,000 starting capital.
+
+EXECUTION MODEL
+50- and 200-session simple moving averages use adjusted Close through today's close. Cross-above/cross-below signals execute at the next trading day's adjusted Open; if that Open is missing, the signal is skipped.
+Buy fill = quoted Open × (1 + slippage); buy debit = shares × fill × (1 + transaction-cost rate). Sell fill = quoted Open × (1 - slippage); net proceeds = shares × fill × (1 - transaction-cost rate).
+OHLC is from the existing yfinance auto_adjust=True snapshot. No leverage is used. Percentage sizing invests the selected fraction of available cash including buy costs; fractional shares are allowed.
+Buy-and-hold buys fractional SPY shares at the period's first Open and liquidates at the last Close with the same cost and slippage rates. Open strategy positions are valued at end-of-day net liquidation value.
+Metrics count completed round trips; realized trade P&L includes both sides' friction. Exposure is the share of sessions held at the close.
+
+A–H. DECISION — REFERENCE CASE: FIXED 10 SHARES, 0.05% COST + 0.05% SLIPPAGE PER SIDE
+A. Made money: yes, 58.55% full-history return and 38.07% on holdout after reference friction.
+B. Buy-and-hold: full-history SPY 3080.83% (strategy excess -3022.29 pp); holdout SPY 311.66% (strategy excess -273.58 pp).
+C. Costs/slippage: full return was 59.11% at 0%/0%, versus 58.55% at 0.05%/0.05% per side; returns remain positive, but it still trails SPY.
+D. Period consistency: beat buy-and-hold in 0/3 fixed calendar periods.
+E. Maximum drawdown: 8.23% full history; 9.82% holdout.
+F. Completed round trips: 14 full history; 3 holdout.
+G. Untouched holdout: 38.07% strategy return vs 311.66% SPY; positive in dollars, but it did not beat the benchmark.
+H. Decision: choose 1 — abandon this 50/200 strategy as a buy-and-hold alternative. Do not paper trade or continue optimizing it.
+
+REFERENCE-CASE RESULTS BY PERIOD
+Period | Final value | Return | Annualized | SPY return | Excess | Max DD | Trades | Win% | Avg win | Avg loss | PF | Loss streak | Exposure
+full_history | $15,854.63 | 58.55% | 1.38% | 3080.83% | -3022.29 pp | 8.23% | 14 | 78.57% | $425.42 | $-130.67 | 11.94 | 1 | 73.95%
+development_70pct | $11,539.60 | 15.40% | 0.61% | 669.63% | -654.24 pp | 3.16% | 10 | 80.00% | $199.85 | $-67.85 | 11.78 | 1 | 69.56%
+holdout_30pct | $13,807.27 | 38.07% | 3.24% | 311.66% | -273.58 pp | 9.82% | 3 | 66.67% | $1,248.28 | $-256.31 | 9.74 | 1 | 61.09%
+2010-2015 | $10,582.52 | 5.83% | 0.95% | 104.54% | -98.71 pp | 1.96% | 2 | 100.00% | $294.38 | n/a | ∞ | 0 | 75.36%
+2016-2020 | $10,887.39 | 8.87% | 1.72% | 104.98% | -96.11 pp | 9.31% | 2 | 50.00% | $584.22 | $-256.31 | 2.28 | 1 | 83.24%
+2021-2026 | $12,898.11 | 28.98% | 4.55% | 120.25% | -91.27 pp | 9.27% | 1 | 100.00% | $1,331.09 | n/a | ∞ | 0 | 60.43%
+
+COST / SLIPPAGE SENSITIVITY — FULL HISTORY, FIXED 10 SHARES
+Cost and slippage are per side; the benchmark uses identical assumptions.
+Cost | Slippage | Strategy return | SPY return | Excess | Trades
+0.00% | 0.00% | 59.11% | 3087.20% | -3028.09 pp | 14
+0.00% | 0.05% | 58.83% | 3084.02% | -3025.19 pp | 14
+0.00% | 0.10% | 58.55% | 3080.83% | -3022.29 pp | 14
+0.05% | 0.00% | 58.83% | 3084.02% | -3025.19 pp | 14
+0.05% | 0.05% | 58.55% | 3080.83% | -3022.29 pp | 14
+0.05% | 0.10% | 58.26% | 3077.65% | -3019.39 pp | 14
+0.10% | 0.00% | 58.55% | 3080.83% | -3022.29 pp | 14
+0.10% | 0.05% | 58.26% | 3077.65% | -3019.39 pp | 14
+0.10% | 0.10% | 57.98% | 3074.48% | -3016.50 pp | 14
+
+POSITION-SIZING SENSITIVITY — REFERENCE COST/SLIPPAGE
+Sizing | Period | Strategy return | SPY return | Excess | Max DD | Trades | Exposure
+fixed_10_shares | full_history | 58.55% | 3080.83% | -3022.29 pp | 8.23% | 14 | 73.95%
+fixed_10_shares | holdout_30pct | 38.07% | 311.66% | -273.58 pp | 9.82% | 3 | 61.09%
+10pct_equity | full_history | 45.76% | 3080.83% | -3035.08 pp | 4.37% | 14 | 73.95%
+10pct_equity | holdout_30pct | 9.26% | 311.66% | -302.40 pp | 4.02% | 3 | 61.09%
+25pct_equity | full_history | 146.65% | 3080.83% | -2934.18 pp | 9.74% | 14 | 73.95%
+25pct_equity | holdout_30pct | 24.00% | 311.66% | -287.66 pp | 9.74% | 3 | 61.09%
+50pct_equity | full_history | 445.49% | 3080.83% | -2635.35 pp | 18.52% | 14 | 73.95%
+50pct_equity | holdout_30pct | 50.85% | 311.66% | -260.80 pp | 18.52% | 3 | 61.09%
+
+Scenario count: 216 period/configuration rows in trend_results.csv.
+Source snapshot: spy_prices.csv; replay with uv run python trend_backtest.py.
