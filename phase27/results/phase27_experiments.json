@@ -1,0 +1,347 @@
+{
+  "integrity": {
+    "golden_reference_sha256": "b0d84b156674a2d81e646acdeae014324e85f9906ce3e1071718269612454e95",
+    "dataset_sha256": "e0676d9232c87be36aed5db2317b0c80f3838b5e9d517afb319f092aa8fd0d52",
+    "python": "3.14.7",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "rng_seed": 20260926,
+    "note": "candidates are deterministic; seed unused"
+  },
+  "control": {
+    "train": {
+      "trades": 78,
+      "total_R": 24.2644,
+      "profit_factor": 1.5515,
+      "win_rate_pct": 43.5897,
+      "average_R": 0.3111,
+      "max_drawdown_R": -9.0
+    },
+    "validation": {
+      "trades": 14,
+      "total_R": -2.0,
+      "profit_factor": 0.8,
+      "win_rate_pct": 28.5714,
+      "average_R": -0.1429,
+      "max_drawdown_R": -7.0
+    }
+  },
+  "gate_constants": {
+    "GATE_TRAIN_MIN_R": 17.0,
+    "GATE_VAL_MIN_R": -2.0,
+    "GATE_VAL_MIN_TRADES": 5,
+    "GATE_MAX_YEAR_SHARE": 0.6,
+    "C2_WEEKLY_SEPARATION_MIN": 0.0025,
+    "C3_ATR_PCTILE_MIN": 0.1
+  },
+  "candidates": {
+    "C1_concurrency_cap_1": {
+      "candidate": "C1",
+      "train": {
+        "trades": 56,
+        "total_R": 16.2644,
+        "profit_factor": 1.5083,
+        "win_rate_pct": 42.8571,
+        "average_R": 0.2904,
+        "max_drawdown_R": -6.0
+      },
+      "validation": {
+        "trades": 10,
+        "total_R": 2.0,
+        "profit_factor": 1.3333,
+        "win_rate_pct": 40.0,
+        "average_R": 0.2,
+        "max_drawdown_R": -4.0
+      },
+      "train_validation_combined": {
+        "trades": 66,
+        "total_R": 18.2644,
+        "profit_factor": 1.4806,
+        "win_rate_pct": 42.4242,
+        "average_R": 0.2767,
+        "max_drawdown_R": -6.0
+      },
+      "year_gate": {
+        "positive_years": 11,
+        "total_years": 18,
+        "best_year_share_of_tv_total_R": 0.3285,
+        "yearly_total_R": {
+          "2004": -2.0,
+          "2005": 2.0,
+          "2006": 2.0,
+          "2007": 0.0,
+          "2008": -1.9909,
+          "2009": 3.0,
+          "2010": 2.0,
+          "2011": -0.0,
+          "2012": 2.089,
+          "2013": 1.0,
+          "2014": -2.0,
+          "2015": 2.0,
+          "2016": 0.0,
+          "2017": 6.0,
+          "2018": 2.1662,
+          "2020": -1.0,
+          "2021": -1.0,
+          "2023": 4.0
+        }
+      },
+      "gates": {
+        "A_no_test_contamination": true,
+        "B_validation_evidence": false,
+        "D_structural_rule": true,
+        "E_cross_period": true,
+        "F_economic_plausibility": true,
+        "G_reproducible": true
+      },
+      "decision": "REJECTED"
+    },
+    "C2_weekly_separation_floor": {
+      "candidate": "C2",
+      "train": {
+        "trades": 69,
+        "total_R": 18.2644,
+        "profit_factor": 1.4566,
+        "win_rate_pct": 42.029,
+        "average_R": 0.2647,
+        "max_drawdown_R": -9.0
+      },
+      "validation": {
+        "trades": 11,
+        "total_R": -2.0,
+        "profit_factor": 0.75,
+        "win_rate_pct": 27.2727,
+        "average_R": -0.1818,
+        "max_drawdown_R": -8.0
+      },
+      "train_validation_combined": {
+        "trades": 80,
+        "total_R": 16.2644,
+        "profit_factor": 1.3388,
+        "win_rate_pct": 40.0,
+        "average_R": 0.2033,
+        "max_drawdown_R": -11.0
+      },
+      "year_gate": {
+        "positive_years": 11,
+        "total_years": 16,
+        "best_year_share_of_tv_total_R": 0.4304,
+        "yearly_total_R": {
+          "2005": 2.0,
+          "2006": -2.0,
+          "2007": 0.0,
+          "2008": -2.9909,
+          "2009": 4.0,
+          "2010": 1.0,
+          "2011": 1.0,
+          "2012": 3.089,
+          "2013": 7.0,
+          "2014": -3.0,
+          "2016": 1.0,
+          "2017": 6.0,
+          "2018": 1.1662,
+          "2020": -2.0,
+          "2021": -4.0,
+          "2023": 4.0
+        }
+      },
+      "gates": {
+        "A_no_test_contamination": true,
+        "B_validation_evidence": false,
+        "D_structural_rule": true,
+        "E_cross_period": true,
+        "F_economic_plausibility": true,
+        "G_reproducible": true
+      },
+      "decision": "REJECTED"
+    },
+    "C3_vol_percentile_floor": {
+      "candidate": "C3",
+      "train": {
+        "trades": 58,
+        "total_R": 17.1754,
+        "profit_factor": 1.5205,
+        "win_rate_pct": 43.1034,
+        "average_R": 0.2961,
+        "max_drawdown_R": -8.0
+      },
+      "validation": {
+        "trades": 8,
+        "total_R": 4.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -1.0
+      },
+      "train_validation_combined": {
+        "trades": 66,
+        "total_R": 21.1754,
+        "profit_factor": 1.5723,
+        "win_rate_pct": 43.9394,
+        "average_R": 0.3208,
+        "max_drawdown_R": -8.0
+      },
+      "year_gate": {
+        "positive_years": 11,
+        "total_years": 18,
+        "best_year_share_of_tv_total_R": 0.3778,
+        "yearly_total_R": {
+          "2004": -1.0,
+          "2005": 2.0,
+          "2006": 4.0,
+          "2007": -1.0,
+          "2008": -2.9909,
+          "2009": -0.0,
+          "2010": 1.0,
+          "2011": -2.0,
+          "2012": 1.0,
+          "2013": 8.0,
+          "2014": -2.0,
+          "2015": 2.0,
+          "2016": 1.0,
+          "2017": 6.0,
+          "2018": 1.1662,
+          "2020": 0.0,
+          "2021": 0.0,
+          "2023": 4.0
+        }
+      },
+      "gates": {
+        "A_no_test_contamination": true,
+        "B_validation_evidence": true,
+        "D_structural_rule": true,
+        "E_cross_period": true,
+        "F_economic_plausibility": true,
+        "G_reproducible": true
+      },
+      "decision": "FROZEN",
+      "final_evaluation_after_freeze": {
+        "trades": 20,
+        "total_R": 7.0,
+        "profit_factor": 1.6364,
+        "win_rate_pct": 45.0,
+        "average_R": 0.35,
+        "max_drawdown_R": -4.0
+      }
+    },
+    "C4_concurrency_cap_2": {
+      "candidate": "C4",
+      "train": {
+        "trades": 72,
+        "total_R": 24.2644,
+        "profit_factor": 1.6066,
+        "win_rate_pct": 44.4444,
+        "average_R": 0.337,
+        "max_drawdown_R": -8.0
+      },
+      "validation": {
+        "trades": 14,
+        "total_R": -2.0,
+        "profit_factor": 0.8,
+        "win_rate_pct": 28.5714,
+        "average_R": -0.1429,
+        "max_drawdown_R": -7.0
+      },
+      "train_validation_combined": {
+        "trades": 86,
+        "total_R": 22.2644,
+        "profit_factor": 1.4453,
+        "win_rate_pct": 41.8605,
+        "average_R": 0.2589,
+        "max_drawdown_R": -11.0
+      },
+      "year_gate": {
+        "positive_years": 13,
+        "total_years": 18,
+        "best_year_share_of_tv_total_R": 0.3593,
+        "yearly_total_R": {
+          "2004": -2.0,
+          "2005": 2.0,
+          "2006": 3.0,
+          "2007": 0.0,
+          "2008": -2.9909,
+          "2009": 3.0,
+          "2010": 1.0,
+          "2011": 2.0,
+          "2012": 2.089,
+          "2013": 5.0,
+          "2014": -3.0,
+          "2015": 2.0,
+          "2016": 2.0,
+          "2017": 8.0,
+          "2018": 2.1662,
+          "2020": -4.0,
+          "2021": -2.0,
+          "2023": 4.0
+        }
+      },
+      "gates": {
+        "A_no_test_contamination": true,
+        "B_validation_evidence": false,
+        "D_structural_rule": true,
+        "E_cross_period": true,
+        "F_economic_plausibility": true,
+        "G_reproducible": true
+      },
+      "decision": "REJECTED"
+    },
+    "C5_quality_combo": {
+      "candidate": "C5",
+      "train": {
+        "trades": 50,
+        "total_R": 10.1754,
+        "profit_factor": 1.3392,
+        "win_rate_pct": 40.0,
+        "average_R": 0.2035,
+        "max_drawdown_R": -8.0
+      },
+      "validation": {
+        "trades": 5,
+        "total_R": 4.0,
+        "profit_factor": 3.0,
+        "win_rate_pct": 60.0,
+        "average_R": 0.8,
+        "max_drawdown_R": -2.0
+      },
+      "train_validation_combined": {
+        "trades": 55,
+        "total_R": 14.1754,
+        "profit_factor": 1.443,
+        "win_rate_pct": 41.8182,
+        "average_R": 0.2577,
+        "max_drawdown_R": -8.0
+      },
+      "year_gate": {
+        "positive_years": 9,
+        "total_years": 15,
+        "best_year_share_of_tv_total_R": 0.5644,
+        "yearly_total_R": {
+          "2005": 2.0,
+          "2006": 0.0,
+          "2007": -1.0,
+          "2008": -2.9909,
+          "2009": -0.0,
+          "2010": 1.0,
+          "2011": -2.0,
+          "2012": 2.0,
+          "2013": 8.0,
+          "2014": -2.0,
+          "2017": 4.0,
+          "2018": 1.1662,
+          "2020": 2.0,
+          "2021": -2.0,
+          "2023": 4.0
+        }
+      },
+      "gates": {
+        "A_no_test_contamination": true,
+        "B_validation_evidence": false,
+        "D_structural_rule": true,
+        "E_cross_period": true,
+        "F_economic_plausibility": true,
+        "G_reproducible": true
+      },
+      "decision": "REJECTED"
+    }
+  }
+}
