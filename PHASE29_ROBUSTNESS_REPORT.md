@@ -23,10 +23,11 @@ OOS(2010–2025): 76 trades, +32.2552R, PF 1.8064, WR 47.37%, maxDD −12.00R.
 
 **The Golden Reference survived the pre-registered stress battery.** The
 edge degrades smoothly and predictably under every adverse family; no
-reasonable perturbation flips the sign of the evidence, and no single
-implementation detail carries the result. The one material fragility found
-is **entry-timing dependence**: the edge decays fast once entry is delayed
-past the signal bar, and is **exhausted by +2 bars**. Under the
+reasonable perturbation flips the sign of the evidence — **but one
+implementation detail IS materially load-bearing: entry timing.** The
+material fragility found is **entry-timing dependence**: the edge decays
+fast once entry is delayed past the signal bar, and is **exhausted by
++2 bars**. Under the
 pre-registered failure definitions this is a robustness statement about
 execution urgency, not a collapse of the evidence — the control itself is
 untouched. No experiment was selected, combined, or improved after the
@@ -266,8 +267,9 @@ and no per-pair change was made.
    negative).
 3. Volatility environment (mid-volatility cohort carries the bulk of
    the edge — descriptive, not actionable).
-4. NOT sensitive: friction level, gap-fill treatment, bracket
-   multipliers, EMA spans, concurrency, trade-order ordering.
+4. NOT sensitive (relative to the material entry-timing sensitivity in
+   item 1): friction level, gap-fill treatment, bracket multipliers,
+   EMA spans, concurrency, trade-order ordering.
 
 **What broke: nothing** — no pre-registered BREAK criterion was met in
 any family. That statement is distinct from (and does not contradict) the

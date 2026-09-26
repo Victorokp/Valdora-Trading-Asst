@@ -30,7 +30,7 @@ was altered.**
 | Small parameter changes produce wildly unstable outcomes | No — PF band 1.36–1.56 across all 12 EMA/bracket neighbors |
 | Modest trade omissions reverse the conclusion | No — 0/60 random seeds negative; top-10 removal leaves +12R |
 | Realistic exposure restrictions destroy the behavior | No — caps 3/2/1 retain +27.3R to +31.3R with lower maxDD |
-| Edge exists only because of one narrow implementation detail | No — every axis tested independently holds; nothing load-bearing found |
+| Edge exists only because of one narrow implementation detail | **Partially — one material dependency was found and documented: execution timing** (+1 bar ≈ −38% total R with maxDD −12R → −18R; +2 bars ≈ −94%, +2.00R, PF 1.026). No pre-registered BREAK criterion was triggered, and every *other* tested axis (execution cost, exit degradation, parameter neighborhood, trade omission, exposure caps, temporal/regime breadth) held independently — but the strategy is **NOT robust to execution delay** (see the execution-timing assessment below) |
 | Severe drawdown requirements materially inconsistent with practical use | Not triggered — envelope median −9R / p5 −14R; realized −12R is an unfavorable ordering, documented for the owner's risk assessment |
 | Hidden dependence on a fragile assumption | One identified and documented: **entry timing** — see the execution-timing assessment below |
 
@@ -83,7 +83,9 @@ Rationale, strictly within the pre-registered wording:
    triggered.
 2. The multi-position property, the exact EMA spans, the bracket
    multipliers, the gap-fill convention, and the trade ordering can all
-   be perturbed without collapsing the evidence.
+   be perturbed without collapsing the evidence. The one dependency that
+   is **material and load-bearing** is execution timing, documented in
+   the execution-timing assessment above.
 3. **Qualification:** **STATE A does not mean the strategy is robust to
    delayed execution. The +2-bar stress nearly exhausts the historical
    edge (+2.00R, PF 1.026).** The decision reflects the pre-registered

@@ -47,8 +47,19 @@ recorded seeds; every other calculation is deterministic.
    — gate 09 — PASS.
 6. Determinism: full battery re-run, all result artifacts
    byte-identical (`sha256sum` diff empty) — gate 08 — PASS.
-7. No favorable-slippage path exists in the stress engine (source-level
-   assertion) — gate 06 — PASS.
+7. Gate 06 (source-level assertion) verifies that **no intentionally
+   favorable slippage treatment exists**: entry slippage is adverse-only
+   (no `- entry_slip_pips` / `friction - slip` path) and intraday target
+   exits subtract the slip (`target_price - exit_slip_pips * pip`).
+   **The committed `gap_target` branch (`o + exit_slip_pips * pip`) is an
+   unintended implementation side-effect** that applies a small favorable
+   slip to the 3 gap-target fills — documented in the robustness report's
+   audit note and reconciled by read-only ledger decomposition (the
+   original C2/C3 CSV rows are INVALID as separate treatments; result
+   artifacts untouched). Gate 06's PASS therefore means "no
+   intentionally favorable slippage treatment," **not** "no
+   favorable-slippage behavior exists anywhere in the source" — the
+   gap_target side-effect demonstrably exists in the committed code.
 8. Phase-28 OOS artifacts and Phase-27 candidate files were read but
    never written by Phase 29 (their recorded hashes from
    `PHASE28_STATISTICS.md` are unchanged on disk) — PASS.
