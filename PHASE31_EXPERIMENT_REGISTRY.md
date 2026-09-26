@@ -299,10 +299,31 @@ and never hidden.
 (2) dataset `e0676d9232c87be36aed5db2317b0c80f3838b5e9d517afb319f092aa8fd0d52`,
 (3) historical ledger
 `30d22be417fbdd0d3db011bce4b0ac2f785f088d30a8dc10900905e7ae2f70d0`,
-(4) Phase-29 artifacts byte-identical to commit
-`a3dc35ee9a51d42dd3c56f239deac9cd60d726e9`, (5) Phase-30 preregistration
-unchanged. **After execution:** repeat all five checks. Any unexpected
-change is a **protocol breach — reported, never silently repaired.**
+(4) **Phase-29 evidence integrity against the already-audited Phase-29
+baseline — precise definition:**
+
+- **Immutable, hash-gated against the original Phase-29 experiment
+  commit `a3dc35ee9a51d42dd3c56f239deac9cd60d726e9`:** every
+  load-bearing experimental artifact — `phase29/phase29_stress.py`,
+  `phase29/tests/test_phase29_gates.py`, all stress/result artifacts
+  (six root `PHASE29_*.csv` files; `phase29/results/` incl.
+  `phase29_summary.json`, `phase29_control_baseline.csv`,
+  `phase29_drawdown_stress.json`, `hashes.txt`),
+  `PHASE29_EXPERIMENT_REGISTRY.md`, `PHASE29_SPECIFICATION.md`.
+- **Permitted at their final reconciled versions from the audited
+  Phase-29 documentation commits** `f32323ad40682756b24a21fbe74e27f7daa4bfaa`,
+  `5f1ca8f0357f3d810331607ec7406d824de84380`,
+  `2011d2385b525be92d5e39fcb214ee44661a7479` — verified against commit
+  `2011d23`, not against `a3dc35e`:
+  `PHASE29_ROBUSTNESS_REPORT.md`, `PHASE29_DATA_AUDIT.md`, and
+  `PHASE29_DECISION.md` (all three at their `2011d23` reconciled
+  state). Documentation-only; the audited reconciliations never touched
+  any experimental artifact (byte-identity of all experimental
+  artifacts against `a3dc35e` was verified at each reconciliation).
+
+(5) Phase-30 preregistration unchanged. **After execution:** repeat all
+five checks. Any unexpected change is a **protocol breach — reported,
+never silently repaired.**
 
 ## Completion rule
 

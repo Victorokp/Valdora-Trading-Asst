@@ -155,10 +155,33 @@ Before execution: verify (1) Golden Reference hash
 `e0676d9232c87be36aed5db2317b0c80f3838b5e9d517afb319f092aa8fd0d52`,
 (3) historical ledger hash
 `30d22be417fbdd0d3db011bce4b0ac2f785f088d30a8dc10900905e7ae2f70d0`,
-(4) Phase-29 artifacts byte-identical to commit `a3dc35e`, and (5)
+(4) **Phase-29 evidence integrity against the already-audited Phase-29
+baseline** — see the precise definition below, and (5)
 Phase-30 preregistration unchanged. After execution: repeat all five
 checks. Any unexpected change is a **protocol breach, reported as such
 — never silently repaired**.
+
+**Phase-29 evidence-integrity gate (precise definition, replacing the
+over-broad "byte-identical to `a3dc35e`" wording):**
+
+- **Immutable, hash-gated against the original Phase-29 experiment
+  commit `a3dc35ee9a51d42dd3c56f239deac9cd60d726e9`** — every
+  load-bearing experimental artifact: `phase29/phase29_stress.py`,
+  `phase29/tests/test_phase29_gates.py`, all stress/result artifacts
+  (the six root `PHASE29_*.csv` files, `phase29/results/` incl.
+  `phase29_summary.json`, `phase29_control_baseline.csv`,
+  `phase29_drawdown_stress.json`, `hashes.txt`),
+  `PHASE29_EXPERIMENT_REGISTRY.md`, and `PHASE29_SPECIFICATION.md`.
+- **Permitted to remain at their final reconciled versions from the
+  already-audited Phase-29 documentation commits** (`f32323a`,
+  `5f1ca8f`, `2011d23`) — verified against commit
+  `2011d2385b525be92d5e39fcb214ee44661a7479`, not against `a3dc35e`:
+  `PHASE29_ROBUSTNESS_REPORT.md`, `PHASE29_DATA_AUDIT.md`, and
+  `PHASE29_DECISION.md` (all three at their `2011d23` reconciled
+  state). These are documentation reconciliation files only; their
+  audited amendments did not touch any experimental artifact (verified
+  byte-identity of all experimental artifacts against `a3dc35e` at each
+  reconciliation commit).
 
 ## 9. Execution order (frozen)
 
