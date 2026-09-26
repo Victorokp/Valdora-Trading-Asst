@@ -1,0 +1,135 @@
+{
+  "integrity": {
+    "golden_reference_sha256": "b0d84b156674a2d81e646acdeae014324e85f9906ce3e1071718269612454e95",
+    "dataset_sha256": "e0676d9232c87be36aed5db2317b0c80f3838b5e9d517afb319f092aa8fd0d52",
+    "ledger_sha256": "30d22be417fbdd0d3db011bce4b0ac2f785f088d30a8dc10900905e7ae2f70d0",
+    "python": "3.14.7",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3"
+  },
+  "baseline": {
+    "trades": 115,
+    "wins": 49,
+    "losses": 66,
+    "win_rate_pct": 42.6087,
+    "gross_profit_R": 98.2644,
+    "gross_loss_R": -66.0,
+    "profit_factor": 1.4889,
+    "total_R": 32.2644,
+    "average_R": 0.2806,
+    "max_drawdown_R": -12.0,
+    "maximum_losing_streak": 7,
+    "test_windows_profitable": 11,
+    "oos_trade_count": 76,
+    "oos_total_R": 32.2552,
+    "oos_profit_factor": 1.8064,
+    "oos_win_rate_pct": 47.3684,
+    "oos_max_drawdown_R": -12.0
+  },
+  "h_exposure": {
+    "max_simultaneous": 6,
+    "avg_simultaneous": 1.7478,
+    "pct_days_with_gt1_position": 2.0652,
+    "overlapping_trade_pairs": 43,
+    "cap3": {
+      "trades": 113,
+      "total_R": 31.2644,
+      "profit_factor": 1.481,
+      "win_rate_pct": 42.4779,
+      "max_drawdown_R": -12.0
+    },
+    "cap2": {
+      "trades": 106,
+      "total_R": 29.2644,
+      "profit_factor": 1.4797,
+      "win_rate_pct": 42.4528,
+      "max_drawdown_R": -11.0
+    },
+    "cap1": {
+      "trades": 84,
+      "total_R": 27.2644,
+      "profit_factor": 1.5801,
+      "win_rate_pct": 44.0476,
+      "max_drawdown_R": -6.0
+    }
+  },
+  "i_drawdown": {
+    "cumulative_final_R": 32.2644,
+    "max_drawdown_R": -12.0,
+    "largest_peak_to_trough_R": -12.0,
+    "num_drawdown_episodes": 10,
+    "recovery_lengths_bars_median": 4,
+    "recovery_lengths_bars_max": 34,
+    "mc_envelope": {
+      "seed": 20290926,
+      "iterations": 10000,
+      "actual_maxDD": -12.0,
+      "median_maxDD": -9.0,
+      "p5_maxDD": -14.0,
+      "p1_maxDD": -17.0,
+      "p95_maxDD": -6.0,
+      "worst_simulated_maxDD": -24.911,
+      "p_worse_than_minus12R": 12.04,
+      "losing_streak_p50": 7,
+      "losing_streak_p95": 11,
+      "losing_streak_max": 21
+    },
+    "drawdown_episode_depths_R": [
+      -12.0,
+      -9.0,
+      -4.0,
+      -3.0,
+      -3.0,
+      -3.0,
+      -3.0,
+      -2.0,
+      -1.0,
+      -1.0
+    ],
+    "drawdown_counts": {
+      "episodes_deeper_than_5.0R": 2,
+      "episodes_deeper_than_8.0R": 2,
+      "episodes_deeper_than_10.0R": 1,
+      "episodes_deeper_than_12.0R": 1,
+      "episodes_deeper_than_15.0R": 0
+    }
+  },
+  "j_temporal": {
+    "best_window": 2025,
+    "worst_window": 2020,
+    "longest_zero_signal_run": 1,
+    "consecutive_losing_windows_max": 2,
+    "consecutive_profitable_windows_max": 4
+  },
+  "g_order_stress": {
+    "seed": 20290926,
+    "iterations": 10000,
+    "actual_maxDD": -12.0,
+    "median_maxDD": -9.0,
+    "p5_maxDD": -14.0,
+    "p1_maxDD": -17.0,
+    "p95_maxDD": -6.0,
+    "worst_simulated_maxDD": -24.911,
+    "p_worse_than_minus12R": 12.04,
+    "losing_streak_p50": 7,
+    "losing_streak_p95": 11,
+    "losing_streak_max": 21
+  },
+  "f2_negative_fraction": {
+    "1pct": {
+      "min_total_R": 30.2644,
+      "max_total_R": 33.2644,
+      "fraction_negative_seeds": 0.0
+    },
+    "5pct": {
+      "min_total_R": 23.2644,
+      "max_total_R": 35.2644,
+      "fraction_negative_seeds": 0.0
+    },
+    "10pct": {
+      "min_total_R": 14.2552,
+      "max_total_R": 38.2644,
+      "fraction_negative_seeds": 0.0
+    }
+  }
+}

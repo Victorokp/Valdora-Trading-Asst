@@ -1,0 +1,6 @@
+threshold_R,episodes_deeper_than_threshold,realized_maxDD_R,mc_median_maxDD_R,mc_p5_maxDD_R,mc_p1_maxDD_R,mc_p95_maxDD_R,mc_worst_maxDD_R,p_ordering_worse_than_minus12R_pct,losing_streak_p50,losing_streak_p95,losing_streak_max
+5.0,2,-12.0,-9.0,-14.0,-17.0,-6.0,-24.911,12.04,7,11,21
+8.0,2,-12.0,-9.0,-14.0,-17.0,-6.0,-24.911,12.04,7,11,21
+10.0,1,-12.0,-9.0,-14.0,-17.0,-6.0,-24.911,12.04,7,11,21
+12.0,1,-12.0,-9.0,-14.0,-17.0,-6.0,-24.911,12.04,7,11,21
+15.0,0,-12.0,-9.0,-14.0,-17.0,-6.0,-24.911,12.04,7,11,21

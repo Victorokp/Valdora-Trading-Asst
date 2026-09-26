@@ -1,0 +1,52 @@
+family,experiment,trades,total_R,profit_factor,win_rate_pct,max_drawdown_R,note
+A_execution,A-FRIC-0.0pips,115,35.3125,1.5433,43.4783,-12.0,
+A_execution,A-FRIC-control,115,32.2644,1.4889,42.6087,-12.0,
+A_execution,A-FRIC-3.0pips,115,32.2173,1.4881,42.6087,-12.0,
+A_execution,A-FRIC-4.0pips,115,29.1921,1.4357,41.7391,-12.0,
+A_execution,A-FRIC-5.0pips,115,26.1668,1.3848,40.8696,-12.0,
+A_execution,A-FRIC-6.0pips,115,23.1416,1.3354,40.0,-13.0,
+A_execution,A-SLIP-0.5pips,115,32.2483,1.4886,42.6087,-12.0,
+A_execution,A-SLIP-1.0pips,115,32.2323,1.4884,42.6087,-12.0,
+A_execution,A-SLIP-2.0pips,115,32.2047,1.488,42.6087,-12.0,
+B_entry_delay,B-DELAY-1bar,115,20.0381,1.2863,39.1304,-18.0,
+B_entry_delay,B-DELAY-2bar,115,2.0,1.0263,33.913,-17.0,
+C_exit_stress,C2-STOPSLIP-0.5pips,115,31.6453,1.4767,42.6087,-12.1046,
+C_exit_stress,C3-TGTSLIP-0.5pips,115,31.6453,1.4767,42.6087,-12.1046,
+C_exit_stress,C2-STOPSLIP-1.0pips,115,31.0263,1.4647,42.6087,-12.2091,
+C_exit_stress,C3-TGTSLIP-1.0pips,115,31.0263,1.4647,42.6087,-12.2091,
+C_exit_stress,C4-GAPATLEVEL,115,32.0,1.4848,42.6087,-12.0,
+D_parameters,D-STOP0.9ATR,115,36.7382,1.5403,40.8696,-11.7778,
+D_parameters,D-STOP1.1ATR,115,31.7858,1.5045,45.2174,-12.1818,
+D_parameters,D-TGT1.8ATR,115,33.4,1.5387,46.087,-10.2,
+D_parameters,D-TGT2.2ATR,115,29.0,1.4143,39.1304,-12.8,
+D_parameters,D-DAILY-EMA20->19,121,26.2644,1.3648,40.4959,-10.0,
+D_parameters,D-DAILY-EMA20->21,110,28.2644,1.4416,41.8182,-12.0,
+D_parameters,D-DAILY-EMA50->49,114,30.2644,1.4586,42.1053,-12.0,
+D_parameters,D-DAILY-EMA50->51,116,31.2644,1.4666,42.2414,-12.0,
+D_parameters,D-WEEKLY-EMA10->9,115,32.2644,1.4889,42.6087,-12.0,
+D_parameters,D-WEEKLY-EMA10->11,112,35.2644,1.5598,43.75,-10.0,
+D_parameters,D-WEEKLY-EMA20->19,115,32.2644,1.4889,42.6087,-12.0,
+D_parameters,D-WEEKLY-EMA20->21,113,34.2644,1.5354,43.3628,-10.0,
+E_signal_timing,E-LAG-1day,115,17.0792,1.2406,38.2609,-18.0,
+E_signal_timing,E-LEAD-1day,,,,,,NOT VALID - WOULD INTRODUCE LOOK-AHEAD (not run)
+F_data_omission,F1-NO-TOP1-WINNERS,114,30.0981,1.456,42.1053,-12.0,
+F_data_omission,F1-NO-TOP2-WINNERS,113,28.0091,1.4244,41.5929,-12.0,
+F_data_omission,F1-NO-TOP5-WINNERS,110,22.0,1.3333,40.0,-12.0,
+F_data_omission,F1-NO-TOP10-WINNERS,105,12.0,1.1818,37.1429,-13.0,
+F_data_omission,F2-RANDOM-1pct,113,30.26..33.26,1.46..1.51,,,20 seeds 29092601..29092620; min total_R 30.26
+F_data_omission,F2-RANDOM-5pct,109,23.26..35.26,1.36..1.58,,,20 seeds 29092601..29092620; min total_R 23.26
+F_data_omission,F2-RANDOM-10pct,103,14.26..38.26,1.22..1.68,,,20 seeds 29092601..29092620; min total_R 14.26
+F_data_omission,F3-NO-10pct-WINNERS,110,22.18..22.26,,,,20 seeds; median 22.26
+F_data_omission,F3-NO-20pct-WINNERS,105,12.01..12.26,,,,20 seeds; median 12.26
+G_order_stress,G-MC-10000,115,32.2644,1.4889,,median -9.0; p1 -17.0; worst -24.911,P(worse than -12R) = 12.04%
+H_exposure,H-CAP3,113,31.2644,1.481,42.4779,-12.0,
+H_exposure,H-CAP2,106,29.2644,1.4797,42.4528,-11.0,
+H_exposure,H-CAP1,84,27.2644,1.5801,44.0476,-6.0,
+J_temporal,J-WINDOWS,76,32.2552,,,-5.0,"{""best_window"": 2025, ""worst_window"": 2020, ""longest_zero_signal_run"": 1, ""consecutive_losing_windows_max"": 2, ""consecutive_profitable_windows_max"": 4}"
+K_regime,K-REGIMES,,,,,,per-cohort rows in PHASE29_REGIME_STRESS.csv
+L_cross_pair,L-GBPUSD-FULL,152,4.4012,1.044,34.2105,-16.0,
+L_cross_pair,L-GBPUSD-OOS2010-2025,101,19.0,1.3115,39.604,-11.0,
+L_cross_pair,L-USDJPY-FULL,118,5.0,1.0649,34.7458,-16.0,
+L_cross_pair,L-USDJPY-OOS2010-2025,88,5.0,1.0877,35.2273,-16.0,
+L_cross_pair,L-AUDUSD-FULL,123,-8.9756,0.8944,30.8943,-23.0,
+L_cross_pair,L-AUDUSD-OOS2010-2025,73,-16.0,0.7037,26.0274,-22.0,

@@ -1,0 +1,39 @@
+{
+  "control_path": {
+    "cumulative_final_R": 32.2644,
+    "max_drawdown_R": -12.0,
+    "num_drawdown_episodes": 10,
+    "episode_depths_R": [
+      -12.0,
+      -9.0,
+      -4.0,
+      -3.0,
+      -3.0,
+      -3.0,
+      -3.0,
+      -2.0,
+      -1.0,
+      -1.0
+    ],
+    "recovery_lengths_bars_median": 4,
+    "recovery_lengths_bars_max": 34
+  },
+  "thresholds_R": [
+    5.0,
+    8.0,
+    10.0,
+    12.0,
+    15.0
+  ],
+  "monte_carlo": {
+    "seed": 20290926,
+    "iterations": 10000
+  },
+  "threshold_counts": {
+    "episodes_deeper_than_5.0R": 2,
+    "episodes_deeper_than_8.0R": 2,
+    "episodes_deeper_than_10.0R": 1,
+    "episodes_deeper_than_12.0R": 1,
+    "episodes_deeper_than_15.0R": 0
+  }
+}
