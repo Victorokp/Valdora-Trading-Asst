@@ -63,32 +63,38 @@ is small relative to ATR, moves R). PF stays above 1.33 in every case.
 | +2 bars | 115 | +2.00 | 1.026 | 33.91 | −17 |
 
 **The most sensitive axis found.** A one-bar delay removes ~38% of total R
-(PF 1.29); a two-bar delay removes ~94% (PF 1.03, effectively
-break-even). The breakout-confirmation signal decays immediately after the
-confirming day. Pre-registered interpretation: "FRAGILE if +1 bar flips
-negative" — it does not flip (still +20R), so the family reads
-DEGRADED-BUT-POSITIVE at +1 bar and FRAGILE at +2 bars. Execution urgency
-is a property of the strategy that any live deployment must respect; it is
-documented, not repaired.
+(PF 1.29) and **increases max drawdown** (−12R → −18R); a two-bar delay
+removes ~94% (PF 1.03, effectively break-even). The breakout-confirmation
+signal decays immediately after the confirming day.
+Pre-registered interpretation: "FRAGILE if +1 bar flips negative" — it
+does not flip (still +20R), so that exact pre-registered trigger was not
+met; the family reads DEGRADED-BUT-POSITIVE at +1 bar and **FRAGILE at
++2 bars — a material execution-timing fragility** (audit note §3 below).
+This does not invalidate the next-open historical test, but the strategy
+must **not** be described as robust to execution delay. It is documented,
+not repaired.
 
 ## Exit Stress (§C)
 
 | Experiment | Trades | Total R | PF | maxDD |
 |---|---|---|---|---|
 | Control | 115 | +32.26 | 1.489 | −12.00 |
-| Adverse 0.5 pip on stop exits | 115 | +31.65 | 1.477 | −12.10 |
-| Adverse 0.5 pip on target exits | 115 | +31.65 | 1.477 | −12.10 |
-| Adverse 1.0 pip on stop exits | 115 | +31.03 | 1.465 | −12.21 |
-| Adverse 1.0 pip on target sides | 115 | +31.03 | 1.465 | −12.21 |
-| Gap exits at gap-through level | 115 | +32.00 | 1.485 | −12.00 |
+| [AUDIT NOTE] Combined stop+target slip 0.5 pips (CSV rows C2/C3 — INVALID as separate treatments) | 115 | +31.65 | 1.477 | −12.10 |
+| [AUDIT NOTE] Combined stop+target slip 1.0 pips (CSV rows C2/C3 — INVALID as separate treatments) | 115 | +31.03 | 1.465 | −12.21 |
+| Adverse gap treatment: gap exits at gap-through level | 115 | +32.00 | 1.485 | −12.00 |
 
 PF remains ≥ 1.465 under 1-pip adverse exit slippage (pre-registered HOLDS
 threshold was PF > 1.4). Adverse gap treatment costs only +0.26R of the
 +32.26R edge (< 1%; pre-registered FRAGILE trigger was > 50%): the
-strategy does **not** depend on favorable gap fills. (Note: C2 and C3 rows
-are numerically identical because stop exits are ~1R-wide events while
-target exits are ~2R-wide; a fixed 1-pip slip converts to nearly the same
-R-shift on both — documented, not tuned.)
+strategy does **not** depend on favorable gap fills.
+[AUDIT NOTE — supersedes the earlier explanation here:] The two middle
+rows are numerically identical **because they are the same combined
+treatment executed twice, not because of exit-width arithmetic.** The
+corrected ledger decomposition at 1 pip (control +32.2644R): stop-only
++31.4995R; target-only fully adverse incl. gap_target +31.7271R; fully
+adverse all exits +30.9622R. All readings unchanged; the original CSV
+rows are preserved as committed and are INVALID as separate experiments
+(see audit note below).
 
 ## Parameter Sensitivity (§D)
 
@@ -263,51 +269,106 @@ and no per-pair change was made.
 4. NOT sensitive: friction level, gap-fill treatment, bracket
    multipliers, EMA spans, concurrency, trade-order ordering.
 
-**What broke: nothing.** No pre-registered BREAKS criterion was met in
-any family.
+**What broke: nothing** — no pre-registered BREAK criterion was met in
+any family. That statement is distinct from (and does not contradict) the
+genuine material execution-timing sensitivity documented in the Entry
+Delay section and audit note §3.
 
 ---
 
-## CORRECTION (post-commit audit note, appended 2026-09-26)
+## AUDIT NOTE (post-commit reconciliation, append-only — supersedes the
+## initial correction note of commit `f32323a`)
 
-Flagged during independent-audit preparation (read-only recomputation on
-the control ledger; no Phase-29 artifact was re-run or regenerated):
+Provenance: the original Phase-29 results remain frozen at commit
+`a3dc35ee9a51d42dd3c56f239deac9cd60d726e9` (immutable). The first audit
+note is commit `f32323ad40682756b24a21fbe74e27f7daa4bfaa` (also
+immutable). This reconciliation is append-only documentation; **no Phase-29
+result CSV or JSON artifact was regenerated** — every committed result
+artifact is byte-identical to its state at `a3dc35e`.
 
-1. **Family C rows are mislabeled in `PHASE29_STRESS_RESULTS.csv`.** The
-   committed implementation applies `exit_slip_pips` to stop-side exits
-   (stop, stop_assumed_first, gap_stop) AND target exits jointly, and —
-   because `gap_target` exits are coded `o + slip` — applies a small
-   *favorable* slip to the 3 gap-target fills. The rows
-   `C2-STOPSLIP-*` and `C3-TGTSLIP-*` are therefore one combined
-   experiment executed twice, not separate stop-only / target-only
-   treatments. Exact ledger-level decomposition at 1 pip (control
-   +32.2644R; 66 stop / 46 target / 3 gap_target): as-implemented rows
-   +31.0263R; correctly-separated stop-only (C2) +31.4995R;
-   target-only fully-adverse incl. gap_target (C3) +31.7271R; fully
-   adverse on all exits +30.9622R. The earlier explanation that the
-   identical C2/C3 values arise from "1R vs 2R exit widths" is **wrong**;
-   they are identical because both rows ran the same combined
-   treatment. Corrected conclusion: unchanged — every decomposition is
-   +31.0R to +32.0R (≤ 4% of edge; PF ≥ 1.47), all pre-registered
-   HOLDS/FRAGILE readings for Family C stand.
-2. **F2 trade-count column off by one at the 1% rate.** Sampling used
-   `k = round(rate × 115)` → 1 / 6 / 12 trades removed (remaining 114 /
-   109 / 103); the CSV `trades` column used `int(115 × (1 − rate))` and
-   shows 113 / 109 / 103. Only the 1% row is affected (113 should read
-   114). Ranges and 0/20-negative findings are unaffected (they are
-   computed from the actual sampled omissions).
-3. **H-CAP selection detail for the audit record:** trades are walked in
-   `entry_date, signal_date` order; a trade is kept iff the number of
-   already-kept trades with `exit_date >= its entry_date` is below the
-   cap. Ties within one entry date fall back to ledger (signal-date)
-   order — deterministic, retrospective by construction, and disclosed
-   as a descriptive exposure test, not a strategy.
-4. **Concurrency metrics definitions:** `avg_simultaneous` 1.7478 is the
-   mean over trades of the count of ledger trades overlapping that trade
-   (including itself, calendar-date closed interval);
-   `pct_days_with_gt1_position` 2.07% uses calendar days including
-   weekends.
+### 1. Family C — original C2/C3 rows are INVALID as separate treatments
+
+Read-only analysis of the frozen 115-row ledger (no battery re-run, no
+result artifact regenerated) established:
+
+- The committed implementation applies `exit_slip_pips` to stop-side exits
+  (stop, stop_assumed_first, gap_stop) **and** target exits jointly, and —
+  because `gap_target` exits are coded `o + slip` — applies a small
+  *favorable* slip to the 3 gap-target fills.
+- Therefore the CSV rows `C2-STOPSLIP-{0.5,1.0}` and
+  `C3-TGTSLIP-{0.5,1.0}` are **one combined treatment executed twice —
+  they are NOT valid independent stop-only and target-only experiments
+  and must not be read as such.** The earlier explanation in this report
+  ("identical because 1R vs 2R exit widths") was wrong.
+- The corrected ledger-level decomposition (control +32.2644R; 66 stop /
+  46 target / 3 gap_target; 1-pip slip) is the audit evidence:
+
+| Treatment (1 pip) | Total R |
+|---|---|
+| Control | +32.2644R |
+| As-implemented combined treatment (the CSV rows) | +31.0263R |
+| Correctly separated: stop-only (C2) | +31.4995R |
+| Correctly separated: target-only, fully adverse incl. gap_target (C3) | +31.7271R |
+| Fully adverse, all exits | +30.9622R |
+
+- The pre-registered Family-C readings are **unchanged**: every
+  decomposition is +31.0R to +32.0R (≤ 4% of edge; PF ≥ 1.47), so HOLDS
+  at s = 1.0 and the C4 finding (< 1% of edge) stand.
+- The original CSV rows were **not corrected** — they are preserved
+  exactly as committed, with this note marking them invalid as separate
+  treatments.
+
+### 2. Family F2 — reporting-column defect only
+
+The CSV `trades` column for the 1% row shows 113 remaining; the actual
+sampling used `k = round(rate × 115)`, i.e. **1% → remove 1 → 114
+remaining** (5% → 6 → 109; 10% → 12 → 103). This is a **reporting-column
+defect only**: the sampled omissions themselves and **all R/PF ranges and
+conclusions were computed with the correct k**. The CSV is preserved
+exactly as committed.
+
+### 3. Entry-timing interpretation — correction of severity
+
+The +1/+2-bar entry-delay results are a **material execution-timing
+fragility**, not an incidental implementation detail:
+
+- The strategy is **highly sensitive to execution timing**.
+- **+1 bar:** ≈ **38% of total R removed** (+32.2644R → +20.04R; PF
+  1.489 → 1.286) and **max drawdown increases** (−12R → −18R).
+- **+2 bars:** ≈ **94% of total R removed** (+2.00R; PF 1.026) — the
+  historical result is **close to break-even**.
+- The pre-registered Family-B rule was specifically **"FRAGILE if +1 bar
+  flips negative."** Because +1 bar stayed positive, that exact
+  pre-registered trigger was not met — but the +2-bar result demonstrates
+  the material fragility regardless.
+- This does **NOT** invalidate the next-open historical test; it **does**
+  mean the strategy must **NOT** be described as robust to execution
+  delay.
+- Distinction: (1) the historical *evidence* is robust under the
+  pre-registered battery (no BREAK criterion triggered); (2) live
+  *execution timing* is a genuine material sensitivity. No new
+  pass/fail criterion was invented after seeing the result.
+- Consistent with this, the Decision document now reads "STATE A under
+  the pre-registered Phase-29 decision criteria, with a material
+  execution-timing fragility explicitly identified," with the explicit
+  qualification that STATE A does not mean robustness to delayed
+  execution.
+
+### 4. Definitions retained from the initial audit note
+
+- **H-CAP selection detail:** trades are walked in `entry_date,
+  signal_date` order; a trade is kept iff the number of already-kept
+  trades with `exit_date >= its entry_date` is below the cap. Ties within
+  one entry date fall back to ledger (signal-date) order —
+  deterministic, retrospective by construction, disclosed as a descriptive
+  exposure test, not a strategy.
+- **Concurrency metrics:** `avg_simultaneous` 1.7478 is the mean over
+  trades of the count of ledger trades overlapping that trade (including
+  itself, calendar-date closed interval); `pct_days_with_gt1_position`
+  2.07% uses calendar days including weekends.
 
 The committed stress CSVs and summary JSON remain exactly as produced at
 `a3dc35e`; this note is appended so the record and the audit agree.
-Original section text above is preserved unchanged.
+Result tables above are unchanged except where explicitly annotated with
+[AUDIT NOTE] markers (Exit Stress labels/explanation, Entry Delay
+wording, envelope closing line); **no numeric result was altered.**

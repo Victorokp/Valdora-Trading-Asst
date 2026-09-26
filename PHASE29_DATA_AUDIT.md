@@ -3,6 +3,11 @@
 Phase 29 data and integrity audit. Nothing was modified: the Golden
 Reference, the dataset, the historical ledger, the Phase-27 candidate, and
 the Phase-28 OOS artifacts are all hash-verified unchanged.
+**Append-only audit reconciliations (2026-09-26):** the first audit note
+(commit `f32323ad40682756b24a21fbe74e27f7daa4bfaa`) and the subsequent
+decision/report language reconciliation are documentation-only —
+**no result artifact below was regenerated**; every hash in this register
+still matches its committed state at `a3dc35ee9a51d42dd3c56f239deac9cd60d726e9`.
 
 ## Artifact hash register (§29/§23)
 
