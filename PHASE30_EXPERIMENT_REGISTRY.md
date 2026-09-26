@@ -33,8 +33,23 @@ NOT robust to execution delay** (+1 bar ≈ −38% total R, maxDD −18R;
   2026-09-25** (the historical dataset's last row), same daily-bar
   granularity. Source must be documented with provider, UTC/GMT
   convention, bid/ask convention, and a SHA-256 recorded before first
-  use. Minimum acceptable coverage: ≥ 60 trading days; shorter coverage
-  → family state LIMITED, not SUPPORTED.
+  use. Minimum acceptable coverage: **≥ 60 qualifying trading days**.
+- **Eligibility / waiting condition (pre-registered):** as of the
+  pre-registration date (2026-09-26), 60 qualifying trading days do not
+  yet exist after 2026-09-25. Therefore:
+  - A1 is **not eligible to execute** until ≥ 60 qualifying trading
+    days exist strictly after 2026-09-25.
+  - Running A1 before that threshold is **prohibited**.
+  - Lack of currently available 60-day coverage is **NOT an
+    INCONCLUSIVE result** — the experiment is simply **PENDING / NOT
+    YET ELIGIBLE** until the pre-registered coverage threshold is
+    reached.
+  - Once ≥ 60 qualifying trading days exist, A1 runs **exactly once**.
+  - The qualifying window remains **strictly post-2026-09-25**: no
+    extension, no truncation, and no discretionary date selection is
+    allowed after looking at results.
+  - The ≥ 60-day threshold is fixed; **no alternative shorter window
+    may be substituted**.
 - **Exact methodology:**
   1. Hash and register the new file (`phase30/data/`).
   2. Load via the Golden Reference loader with the new file path and
@@ -54,12 +69,17 @@ NOT robust to execution delay** (+1 bar ≈ −38% total R, maxDD −18R;
 - **Expected outputs:** `phase30/results/A1_forward_trades.csv`,
   `phase30/results/A1_forward_summary.json`, section in
   `PHASE30_RESULTS.md`.
-- **Failure criteria (pre-declared):** state INCONCLUSIVE if no
-  qualifying data can be obtained or coverage < 60 trading days; state
-  SUPPORTED requires positive total R **and** PF > 1 with ≥ 5 trades;
-  state MIXED if positive R but PF ≤ 1 or n < 5; negative R with ≥ 5
-  trades is recorded as evidence *against* persistence (descriptive —
-  the phase's decision states are neutral; this is not a BREAK state).
+- **Failure criteria (pre-declared):** before the coverage threshold is
+  reached, A1 has **no outcome state at all** — it is PENDING / NOT YET
+  ELIGIBLE (this is not INCONCLUSIVE and not LIMITED). After the
+  threshold is reached and the single run is executed: state SUPPORTED
+  requires positive total R **and** PF > 1 with ≥ 5 trades; state MIXED
+  if positive R but PF ≤ 1 or n < 5; negative R with ≥ 5 trades is
+  recorded as evidence *against* persistence (descriptive — the phase's
+  decision states are neutral; this is not a BREAK state). INCONCLUSIVE
+  applies only to a post-threshold execution failure (e.g., the run
+  cannot complete for a documented technical reason), never to waiting
+  for coverage.
 - **Contamination controls:** dates strictly outside historical span
   (asserted in code); file hashed before use; Golden Reference and
   historical dataset opened read-only; no parameter is touched after
@@ -128,12 +148,33 @@ NOT robust to execution delay** (+1 bar ≈ −38% total R, maxDD −18R;
 - **Fixed seeds:** none.
 - **Metrics/outputs:** → `phase30/results/B1_cost_summary.json`.
 - **Failure criteria:** none beyond neutral states — SUPPORTED if
-  positive R at the documented cost; MIXED if positive R but PF < 1.3;
-  LIMITED if no defensible documented cost figure can be cited.
+  positive R at the frozen documented cost; MIXED if positive R but
+  PF < 1.3; **LIMITED (and no execution) if no source satisfies all
+  five selection-rule criteria**.
 - **Contamination controls:** cost figure recorded before the run; no
   grid, no iteration; runs on frozen pipeline read-only.
-- **Pre-registered cost value:** *(to be filled with a dated, cited
-  snapshot immediately before execution — a single value, no search)*.
+- **Cost-selection rule (FROZEN — deterministic, no discretion):**
+  Before execution, identify the **first qualifying public
+  broker/source** that satisfies ALL of the following:
+  1. publishes a EURUSD trading-cost figure publicly;
+  2. clearly identifies whether the figure is spread-only or includes
+     commission;
+  3. provides a dated/currently accessible source;
+  4. provides enough information to convert the total round-trip cost
+     into pips;
+  5. does not require selecting among multiple competing cost figures
+     based on which produces a more favorable result.
+  The selected source must be recorded **before the B1 run** with:
+  provider/broker name; source/page; access date; quoted cost; whether
+  spread and commission are included; exact conversion to pips; and
+  the resulting single B1 friction value.
+  **If no source satisfies all criteria, B1 becomes LIMITED and is not
+  executed.** Once the qualifying source is selected and recorded, that
+  single resulting pip value is **frozen**.
+  **Binding prohibitions:** no source shopping after seeing B1
+  results; no cost grid; no alternate broker comparison; no second B1
+  run; no made-up or placeholder cost value is inserted at
+  pre-registration time.
 
 ### B2 — Next-open feasibility & gap audit
 
@@ -208,11 +249,32 @@ NOT robust to execution delay** (+1 bar ≈ −38% total R, maxDD −18R;
   evidence.
 - **Data required:** the A2 independent file (same registered file; no
   new download).
-- **Exact methodology:** recompute the frozen pipeline on
-  convention-adjusted variants declared in advance: (i) with Sunday
-  bars removed, (ii) with stamps shifted to the historical file's
-  convention (documented before use); compare trades count, PF, total
-  R vs A2 base run. Exactly these two variants; nothing else.
+- **Exact methodology (mechanically reproducible; exactly two
+  variants — no third convention variant may be introduced):**
+  recompute the frozen pipeline on the two registered variants and
+  compare trades count, PF, total R vs the A2 base run.
+  - **Variant 1 — Sunday-bar removal.**
+    1. Identify Sunday bars according to the independent source's
+       documented calendar/timestamp convention.
+    2. Remove those complete daily rows before running the frozen
+       strategy.
+    3. Do **not** interpolate, merge, resample, or otherwise
+       reconstruct OHLC.
+    4. All remaining OHLC values remain unchanged.
+    5. Document the number of rows removed.
+  - **Variant 2 — Timestamp-convention transformation.**
+    1. Record the independent source's timestamp timezone/convention.
+    2. Record the historical dataset's timestamp timezone/convention.
+    3. Calculate the exact fixed UTC offset between them.
+    4. Apply that exact fixed offset to **timestamps only**.
+    5. Do **not** alter OHLC values.
+    6. Reassign calendar dates after the timestamp transformation.
+    7. If the transformation causes a date-boundary change, document
+       it.
+    8. Do **not** resample or reconstruct OHLC.
+    9. The exact offset must be **declared before C1 execution**.
+    If the two conventions cannot be unambiguously established, C1
+    Variant 2 is **LIMITED** rather than being interpreted manually.
 - **Fixed parameters:** variants (i) and (ii) only.
 - **Fixed seeds:** none.
 - **Metrics/outputs:** → `phase30/results/C1_conventions.csv`.
@@ -236,10 +298,23 @@ NOT robust to execution delay** (+1 bar ≈ −38% total R, maxDD −18R;
   (GBPUSD +4.40R full / AUDUSD −8.98R full); additional pairs are
   expected to behave inconsistently; the deliverable is a quantified
   transfer statement, not new candidates.
-- **Data required:** daily OHLC for GBPUSD, USDJPY, AUDUSD (existing
-  repo files, hash-verified) plus — only if obtainable under the same
-  registration discipline — NZDUSD, USDCHF, USDCAD strictly for this
-  descriptive family.
+- **Data required (UNIVERSE FROZEN — exactly six pairs; no other pair
+  may ever be added):**
+  1. GBPUSD
+  2. USDJPY
+  3. AUDUSD
+  4. NZDUSD
+  5. USDCHF
+  6. USDCAD
+  Per-pair data rules: if an already registered historical file exists
+  (GBPUSD, USDJPY, AUDUSD repo files), use it after hash verification;
+  if an external file is required (NZDUSD, USDCHF, USDCAD), it must be
+  registered and hashed **before any D1 output is generated**; if a
+  pair's required data cannot be obtained under the contamination
+  rules, mark that pair **UNAVAILABLE/LIMITED**. Do not replace an
+  unavailable pair with another pair; do not remove a pair because
+  preliminary results are unfavorable; do not add a pair because
+  preliminary results look favorable.
 - **Exact methodology:** unchanged Golden Reference logic per pair
   (PIP constant per pair as in Phase 29); one run each; pre-declared
   metrics: trades, total R, PF, WR, maxDD, full-history and
@@ -254,8 +329,9 @@ NOT robust to execution delay** (+1 bar ≈ −38% total R, maxDD −18R;
   show positive PF > 1.2, mechanism generalization is *plausible*;
   otherwise the evidence remains EURUSD-specific and any further
   research is scoped to EURUSD only.
-- **Contamination controls:** no per-pair adjustment; pairs added only
-  before any D1 output exists.
+- **Contamination controls:** no per-pair adjustment; the six-pair
+  universe is frozen at pre-registration — no pair may be added,
+  removed, or replaced at any time, before or after results.
 
 ---
 

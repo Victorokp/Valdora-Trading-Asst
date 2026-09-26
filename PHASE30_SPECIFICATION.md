@@ -163,6 +163,13 @@ state:
 - **INCONCLUSIVE** — the required evidence could not be obtained (e.g.,
   no uncontaminated external data available in this environment).
 
+An experiment that is **ineligible to execute** under its pre-registered
+waiting condition (specifically A1's ≥ 60-qualifying-trading-days
+threshold, which had not been reached at pre-registration) is
+**PENDING / NOT YET ELIGIBLE** — a registry-defined eligibility status,
+not INCONCLUSIVE and not LIMITED. It acquires a decision state only
+after it becomes eligible and executes exactly once.
+
 There is no scoring system, no ranking of experiments, no "best"
 strategy. The final Phase-30 statement maps the per-family states to a
 recommendation about **whether further research is warranted**, nothing
