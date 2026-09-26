@@ -265,3 +265,49 @@ and no per-pair change was made.
 
 **What broke: nothing.** No pre-registered BREAKS criterion was met in
 any family.
+
+---
+
+## CORRECTION (post-commit audit note, appended 2026-09-26)
+
+Flagged during independent-audit preparation (read-only recomputation on
+the control ledger; no Phase-29 artifact was re-run or regenerated):
+
+1. **Family C rows are mislabeled in `PHASE29_STRESS_RESULTS.csv`.** The
+   committed implementation applies `exit_slip_pips` to stop-side exits
+   (stop, stop_assumed_first, gap_stop) AND target exits jointly, and —
+   because `gap_target` exits are coded `o + slip` — applies a small
+   *favorable* slip to the 3 gap-target fills. The rows
+   `C2-STOPSLIP-*` and `C3-TGTSLIP-*` are therefore one combined
+   experiment executed twice, not separate stop-only / target-only
+   treatments. Exact ledger-level decomposition at 1 pip (control
+   +32.2644R; 66 stop / 46 target / 3 gap_target): as-implemented rows
+   +31.0263R; correctly-separated stop-only (C2) +31.4995R;
+   target-only fully-adverse incl. gap_target (C3) +31.7271R; fully
+   adverse on all exits +30.9622R. The earlier explanation that the
+   identical C2/C3 values arise from "1R vs 2R exit widths" is **wrong**;
+   they are identical because both rows ran the same combined
+   treatment. Corrected conclusion: unchanged — every decomposition is
+   +31.0R to +32.0R (≤ 4% of edge; PF ≥ 1.47), all pre-registered
+   HOLDS/FRAGILE readings for Family C stand.
+2. **F2 trade-count column off by one at the 1% rate.** Sampling used
+   `k = round(rate × 115)` → 1 / 6 / 12 trades removed (remaining 114 /
+   109 / 103); the CSV `trades` column used `int(115 × (1 − rate))` and
+   shows 113 / 109 / 103. Only the 1% row is affected (113 should read
+   114). Ranges and 0/20-negative findings are unaffected (they are
+   computed from the actual sampled omissions).
+3. **H-CAP selection detail for the audit record:** trades are walked in
+   `entry_date, signal_date` order; a trade is kept iff the number of
+   already-kept trades with `exit_date >= its entry_date` is below the
+   cap. Ties within one entry date fall back to ledger (signal-date)
+   order — deterministic, retrospective by construction, and disclosed
+   as a descriptive exposure test, not a strategy.
+4. **Concurrency metrics definitions:** `avg_simultaneous` 1.7478 is the
+   mean over trades of the count of ledger trades overlapping that trade
+   (including itself, calendar-date closed interval);
+   `pct_days_with_gt1_position` 2.07% uses calendar days including
+   weekends.
+
+The committed stress CSVs and summary JSON remain exactly as produced at
+`a3dc35e`; this note is appended so the record and the audit agree.
+Original section text above is preserved unchanged.
