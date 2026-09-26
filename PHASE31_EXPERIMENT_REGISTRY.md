@@ -303,13 +303,35 @@ and never hidden.
 baseline — precise definition:**
 
 - **Immutable, hash-gated against the original Phase-29 experiment
-  commit `a3dc35ee9a51d42dd3c56f239deac9cd60d726e9`:** every
-  load-bearing experimental artifact — `phase29/phase29_stress.py`,
-  `phase29/tests/test_phase29_gates.py`, all stress/result artifacts
-  (six root `PHASE29_*.csv` files; `phase29/results/` incl.
-  `phase29_summary.json`, `phase29_control_baseline.csv`,
-  `phase29_drawdown_stress.json`, `hashes.txt`),
-  `PHASE29_EXPERIMENT_REGISTRY.md`, `PHASE29_SPECIFICATION.md`.
+  commit `a3dc35ee9a51d42dd3c56f239deac9cd60d726e9` — the exact
+  19-file Tier-1 manifest:**
+  1. `phase29/phase29_stress.py`
+  2. `phase29/tests/test_phase29_gates.py`
+  3. `PHASE29_STRESS_RESULTS.csv`
+  4. `PHASE29_EXECUTION_STRESS.csv`
+  5. `PHASE29_PARAMETER_SENSITIVITY.csv`
+  6. `PHASE29_DRAWDOWN_STRESS.csv`
+  7. `PHASE29_TEMPORAL_STRESS.csv`
+  8. `PHASE29_REGIME_STRESS.csv`
+  9. `phase29/results/PHASE29_STRESS_RESULTS.csv`
+  10. `phase29/results/PHASE29_EXECUTION_STRESS.csv`
+  11. `phase29/results/PHASE29_PARAMETER_SENSITIVITY.csv`
+  12. `phase29/results/PHASE29_TEMPORAL_STRESS.csv`
+  13. `phase29/results/PHASE29_REGIME_STRESS.csv`
+  14. `phase29/results/phase29_summary.json`
+  15. `phase29/results/phase29_control_baseline.csv`
+  16. `phase29/results/phase29_drawdown_stress.json`
+  17. `phase29/results/hashes.txt`
+  18. `PHASE29_EXPERIMENT_REGISTRY.md`
+  19. `PHASE29_SPECIFICATION.md`
+
+  (Manifest note: the five `phase29/results/PHASE29_*.csv` entries are
+  the results-directory copies committed with the audited experiment —
+  byte-identical duplicates of their root counterparts — pinned
+  explicitly so no committed experimental artifact escapes the gate.
+  `PHASE29_DATA_AUDIT.md`, `PHASE29_DECISION.md`, and
+  `PHASE29_ROBUSTNESS_REPORT.md` are NOT in Tier 1; they are the
+  Tier-2 documentation files below.)
 - **Permitted at their final reconciled versions from the audited
   Phase-29 documentation commits** `f32323ad40682756b24a21fbe74e27f7daa4bfaa`,
   `5f1ca8f0357f3d810331607ec7406d824de84380`,
