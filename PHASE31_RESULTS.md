@@ -167,3 +167,77 @@ total-R outputs are unaffected (order-invariant). B1 maxDD/streak
 outputs and C3 recovery outputs are affected as described. B2 is
 unaffected (the consumed Phase-29 Monte Carlo did shuffle:
 `rs[rng.permutation(len(rs))]`).
+
+---
+
+# E1 CLOSURE — B1 CORRECTIVE RERUN INCORPORATED (append-only)
+
+**Status update:** the validity review above was resolved by the
+preregistered B1 corrective rerun:
+
+- Correction protocol: `8c6e5f10eb055d2616320068bda9e56ac365dd25`
+  (`PHASE31_B1_CORRECTION_PROTOCOL.md`)
+- Corrected execution: `03f95618eb05607fe1ff5132c74abd0ffaa4021b`
+  (`phase31/phase31_b1_correction.py` + three corrected artifacts),
+  independently audited and valid
+- Phase-31 status is now **PHASE 31 — CLOSED AFTER CORRECTIVE B1
+  VALIDATION**.
+
+## Corrected B1 results (authoritative for the order-dependent metrics)
+
+Executed exactly as frozen: `phase21_experiment_results/phase21_trades.csv`
+(SHA `30d22be4…f70d0`, 115 trades) · single RNG
+`numpy.random.default_rng(20260929)` · exactly 10,000 permutations ·
+sign probability 0.5 · operation order: magnitudes → independent sign
+randomization → **shuffle** → metrics (total R, maxDD, max losing
+streak).
+
+- Null total-R p1/5/25/50/75/95/99 (R): −38.0864 / −26.2461 / −10.2461 /
+  +0.0864 / +11.7356 / +26.2644 / +37.9319
+- Observed +32.2644R: **97.73rd percentile**; P(null total R ≥ observed)
+  = **2.27%**
+- Null maxDD p1/5/25/50/75/95/99 (R): −43.9327 / −34.2644 / −23.0981 /
+  −17.0000 / −12.8338 / −8.7961 / −7.0000
+- Observed −12R maxDD: **80.14th percentile** — not unusually extreme
+  relative to this particular randomized null
+- Null max losing streak: p50 = 6, p95 = 10
+
+Interpretation guard (binding): descriptive reference distribution
+under the stated fair-coin sign-randomization model; NOT a definitive
+strategy p-value.
+
+## Original vs corrected (evidence-chain discipline)
+
+- **ORIGINAL EXECUTION** (`76e9c3e…`): preserved exactly as historical
+  evidence. Its total-R outputs remain usable as order-invariant
+  sign-randomization evidence (97.75th pct / 2.25%); its maxDD/streak
+  outputs are invalid for the frozen B1 protocol because the
+  preregistered shuffle was omitted.
+- **CORRECTED EXECUTION** (`03f9561…`): valid under the frozen protocol
+  and replaces the invalid order-dependent interpretation. It does NOT
+  erase the historical original execution; original B1 artifacts were
+  not modified, and no other Phase-31 family was rerun.
+
+## What closure means
+
+Phase 31 is closed as an evidence-assessment phase after completion and
+validation of the preregistered B1 corrective rerun. Closure means the
+preregistered Phase-31 evidence-sufficiency assessment has been
+completed and its documented evidence states synthesized. It does NOT
+mean the trading strategy is proven, live-trading readiness is
+established, execution robustness is established, external validation
+is complete, future performance is guaranteed, or Phase 30 is complete.
+The documented limitations stand: execution-timing sensitivity (+1 bar
++20.04R; +2 bars +2.00R vs control +32.2644R — the strategy is never
+described as robust to execution delay), the 115-trade historical
+sample, trade dependence/clustering, multiple-testing and
+research-history uncertainty (D2 remains UNKNOWN on the historical
+package's originating environment), and the absence of forward external
+validation. Phase 30 remains **PREREGISTERED — WAITING FOR A1
+ELIGIBILITY** (≥ 60 qualifying EURUSD daily trading days strictly after
+2026-09-25; unchanged Golden Reference logic; no early execution) and
+is unaffected by this closure. E1
+(`phase31/results/E1_evidence_matrix.md`) is updated accordingly. This
+update is documentation-only: no experiment was run, no artifact was
+overwritten, and the evidence states are unchanged from the matrix
+(row 3 now distinguishes ORIGINAL vs CORRECTED execution).
