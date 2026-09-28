@@ -203,3 +203,146 @@ with this document.
 6. All Phase-30 code is additive (`phase30/`); Golden Reference and
    Phase-21..29 artifacts are opened read-only; hash gates run before
    and after every execution (same pattern as Phase 29 gate 01–02).
+
+## 11. Protocol clarifications (2026-09-28) — G1–G4
+
+**Label:** PROTOCOL CLARIFICATION — appended during the A1 waiting
+period by the authorized G1–G4 resolution step
+(`VALDORA_PHASE30_PROTOCOL_RESOLUTION.md`), resolving the four
+clarification-level gaps identified by
+`VALDORA_FUTURE_RESEARCH_COMPLETENESS_AUDIT.md` §22. These definitions
+add operational content where the preregistration was silent; they do
+not alter the research question, data, strategy logic, registered
+metrics, or decision rules of Sections 1–10. The original
+preregistration text above is unchanged (this section is append-only;
+rationale and classification table below; date of record: 2026-09-28).
+
+### G1 — A1 qualifying trading day (clarifies registry A1 eligibility)
+
+A calendar date qualifies as an **A1 qualifying trading day** iff:
+
+1. the date is strictly later than 2026-09-25;
+2. the registered A1 EURUSD daily-OHLC file contains exactly one valid
+   daily OHLC observation for that date;
+3. Open, High, Low, Close are valid numeric values;
+4. the date is part of the registered file's documented EURUSD daily
+   trading calendar;
+5. the row passes the G3 data-quality gate below;
+6. no duplicate date exists — a date with a duplicate observation does
+   NOT qualify, and duplicates are never deduplicated;
+7. the row is not fabricated/interpolated;
+8. the row is not a placeholder/missing-data row.
+
+**Eligibility rule (threshold and window unchanged):** A1 is eligible
+iff `count(valid unique qualifying EURUSD daily OHLC dates strictly
+after 2026-09-25) >= 60`. The historical control period and any
+pre-2026-09-26 portion of a mixed file do NOT count. A1 must not run
+before this gate passes.
+
+**Important distinction:** qualifying days count OBSERVED DAILY OHLC
+DATES — not resampled candles, not signals, not trades, not winning
+trades, not strategy-active days. A day with zero strategy activity
+still qualifies if its daily OHLC observation is valid. The eligibility
+checker must not depend on the current date; the boundary is fixed at
+2026-09-25.
+
+### G2 — A1 small-sample state mapping (fills registry-silent outcomes)
+
+The registered A1 failure criteria remain authoritative for every
+outcome they already map (SUPPORTED: positive total R and PF > 1 with
+≥ 5 trades; MIXED: positive R but PF ≤ 1 or n < 5; negative R with
+≥ 5 trades recorded as evidence against persistence, descriptive;
+INCONCLUSIVE only for a post-threshold execution failure). This
+clarification adds ONLY the previously unmapped outcomes:
+
+- Fewer than 60 qualifying days → **PENDING / NOT YET ELIGIBLE**
+  (existing registered status; unchanged).
+- 60+ qualifying days with **0 trades** → **LIMITED**: zero trades
+  reported explicitly; no trade-level performance estimate exists; PF
+  and win rate are NOT assigned; no zero-valued performance metrics are
+  fabricated; no success/failure claim is made from absence of trades.
+- 60+ qualifying days, **total R negative with n < 5** → **LIMITED**:
+  exact trade count and exact total R reported; the small sample is not
+  treated as a decisive failure; the registered strategy is not
+  modified; no rerun with alternative filters.
+- 60+ qualifying days and any other **explicitly documented**
+  small-sample condition that makes the A1 evidence materially limited
+  → **LIMITED** (documented in the results file).
+
+No new positive criterion is introduced; a small sample never becomes a
+positive conclusion.
+
+### G3 — Mandatory external-file quality gate (registration-time control)
+
+Any external dataset registered for use by A1, A2, C1, D1 (and B1 if an
+external file is ever involved) passes a deterministic quality gate
+BEFORE the family executes.
+
+**File-level:** file exists; expected type; readable; non-empty; source
+identity documented; acquisition timestamp documented; source
+URL/provider documented where applicable; SHA-256 captured; coverage
+start/end captured; timezone/convention documented; schema documented.
+
+**Row-level:** required date field present; required OHLC fields
+present; numeric OHLC; no null required OHLC; High ≥ max(Open, Close);
+Low ≤ min(Open, Close); High ≥ Low; no impossible negative prices; no
+duplicate dates; dates sorted after normalization; no accidental
+duplicate rows; unexplained missing dates reported, never silently
+filled.
+
+**Hard failures** (duplicate dates; missing/non-numeric OHLC;
+impossible values; OHLC-logic violations; unreadable/empty/mis-schemaed
+files) FAIL the gate: the affected family does not execute; the issue
+is reported; the source file is preserved unchanged; no deduplication,
+interpolation, or repair is performed.
+
+**Warnings** (weekday gaps inside claimed coverage — potential
+holidays; weekend-dated rows; out-of-order file rows) are REPORTED and
+adjudicated in the results file, never repaired: legitimate
+market-calendar gaps cannot be distinguished from defects without an
+external holiday calendar.
+
+This is a data-integrity control inside the existing registration
+requirement (Section 10.1), not a new research test.
+
+### G4 — D1 pip constants and coverage convention (pins unstated values)
+
+**(a) Per-pair pip constants** for the frozen six-pair universe, pinned
+explicitly (never inferred from observed decimal precision), consistent
+with the Phase-29 mapping:
+
+| Pair | Pip |
+|---|---|
+| GBPUSD | 0.0001 |
+| USDJPY | 0.01 |
+| AUDUSD | 0.0001 |
+| NZDUSD | 0.0001 |
+| USDCHF | 0.0001 |
+| USDCAD | 0.0001 |
+
+**(b) External pair files** (NZDUSD, USDCHF, USDCAD) are assessed with
+a tri-state coverage convention against the registered 2010–2025 D1
+slice — no arbitrary numeric minimum is introduced:
+
+- **COVERAGE SUFFICIENT** — documented coverage demonstrably spans the
+  registered slice;
+- **COVERAGE INSUFFICIENT** — it demonstrably does not;
+- **COVERAGE UNKNOWN** — source documentation is inadequate.
+
+An unavailable or insufficient pair follows the registered
+UNAVAILABLE/LIMITED path; no pair is ever substituted, added, or
+removed.
+
+### Classification record (task §6)
+
+| Item | Changes research question? | Changes data? | Changes strategy logic? | Changes metrics? | Changes decision rules? | Classification |
+|---|---|---|---|---|---|---|
+| G1 | No | No | No | No | No — defines the counting unit of the already-registered gate | CLARIFICATION — SAFE TO INCORPORATE |
+| G2 | No | No | No | No | No — maps previously unmapped outcomes to existing states; registered rules untouched | CLARIFICATION — SAFE TO INCORPORATE |
+| G3 | No | No (gates, never repairs) | No | No | No — validation/control inside Section 10.1 | CLARIFICATION — SAFE TO INCORPORATE |
+| G4 | No | No | No | No | No — pins constants consistent with the Phase-29 precedent | CLARIFICATION — SAFE TO INCORPORATE |
+
+No other change to Sections 1–10 is authorized by this appendix. If any
+conflict is ever found between this appendix and the original registry
+text, the original text governs and the conflict is referred for
+review.

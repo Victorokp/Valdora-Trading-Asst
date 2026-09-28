@@ -384,3 +384,61 @@ trustworthy for further research, and under what documented limitations?*
   SHA-256 in `PHASE30_RESULTS.md`.
 - Any deviation from this registry discovered during execution is a
   reportable breach, not a fixable detail.
+
+---
+
+## Addendum: protocol clarifications G1–G4 (2026-09-28)
+
+**Label:** PROTOCOL CLARIFICATION — append-only addendum recorded
+during the A1 waiting period by the authorized G1–G4 resolution step
+(`VALDORA_PHASE30_PROTOCOL_RESOLUTION.md`). The registered text of
+every family above is unchanged (this addendum adds; nothing above is
+rewritten). Full definitions and rationale live in the specification
+appendix ("Section 11. Protocol clarifications"); the binding content
+is restated here so this registry remains self-contained.
+
+1. **G1 (affects A1 eligibility):** a *qualifying trading day* is a
+   calendar date strictly after 2026-09-25 with exactly one valid,
+   quality-gated (G3) daily OHLC observation in the registered A1 file;
+   a date with a duplicate observation does not qualify and is never
+   deduplicated. Eligibility remains `count(qualifying days) >= 60`;
+   the historical control period never counts. Days with zero signals
+   or zero trades still qualify when their OHLC observation is valid.
+   The checker never uses today's date.
+
+2. **G2 (affects A1 outcome mapping):** the registered failure criteria
+   are unchanged and remain authoritative. Previously unmapped outcomes
+   are now mapped: 0 trades at eligibility → LIMITED (no PF/WR assigned,
+   no fabricated zero-valued metrics); total R negative with n < 5 →
+   LIMITED (exact n and total R reported; not a decisive failure; no
+   reruns or filter changes); other explicitly documented
+   small-sample conditions → LIMITED (documented in the results file).
+   No new positive criterion exists; a small sample never becomes a
+   positive conclusion.
+
+3. **G3 (affects A1, A2, C1, D1; B1 if an external file is involved):**
+   every external dataset passes a deterministic quality gate BEFORE
+   the family executes. Hard failures — duplicate dates, missing or
+   non-numeric OHLC, impossible values, OHLC-logic violations,
+   unreadable/empty/mis-schemaed files — stop the affected family
+   (reported, never repaired, never deduplicated, never interpolated).
+   Warnings — weekday gaps (holidays), weekend-dated rows, out-of-order
+   rows — are reported and adjudicated in the results file, never
+   repaired silently. This is a registration-time validation/control
+   inside contamination control #1, not a new research test.
+
+4. **G4 (affects D1):** per-pair pip constants are pinned — GBPUSD,
+   AUDUSD, NZDUSD, USDCHF, USDCAD: 0.0001; USDJPY: 0.01 — never
+   inferred from decimal precision, consistent with the Phase-29
+   mapping. External pair files are assessed COVERAGE SUFFICIENT /
+   INSUFFICIENT / UNKNOWN against the registered 2010–2025 slice; an
+   insufficient/unavailable pair takes the registered
+   UNAVAILABLE/LIMITED path and is never substituted.
+
+Implementation note: the inert preparation layer
+(`phase30/prep/`, unit-tested under `phase30/tests/`) encodes exactly
+these definitions — eligibility checker, quality gate, state mapper,
+D1 registry, provenance schema, C1 two-variant interface, B1
+five-criterion cost interface, runtime manifest — and executes no
+research. It runs nothing until a registered dataset file exists and a
+family is separately authorized to execute.
