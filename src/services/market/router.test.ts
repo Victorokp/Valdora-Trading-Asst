@@ -603,7 +603,7 @@ describe('MarketDataRouter — service-level status and provenance mapping (Phas
     expect(adapters.map((x) => [x.id, x.verification, x.isEnabled()])).toStrictEqual([
       ['TWELVE_DATA', 'VERIFIED', false],
       ['MASSIVE', 'VERIFIED', false],
-      ['ALPHA_VANTAGE', 'UNVERIFIED', false],
+      ['ALPHA_VANTAGE', 'VERIFIED', false],
     ]);
   });
 });

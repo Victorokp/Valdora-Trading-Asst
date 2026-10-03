@@ -1,39 +1,38 @@
 /**
  * Alpha Vantage adapter — EMERGENCY provider (EURUSD daily OHLC).
  *
- * CONTRACT STATUS: UNVERIFIED (2026-10-03). The adapter is HARD-DISABLED:
- * `isEnabled()` returns false even when a credential is supplied, so the
- * router always skips it as DISABLED until the open items below are
- * verified against the provider's own documentation with a real key.
+ * CONTRACT STATUS: VERIFIED (live probe with a server-side key, 2026-10-03).
+ * `isEnabled()` still requires a server-side credential: the key travels in
+ * the request URL (the only documented auth option), so this adapter may
+ * only ever run behind a server boundary — never in client code.
  *
- * Verified from official sources (https://www.alphavantage.co/documentation
- * and https://www.alphavantage.co/support/):
- * - Base URL `https://www.alphavantage.co/query`; `function=FX_DAILY`
- *   "returns the daily time series (timestamp, open, high, low, close) of
- *   the FX currency pair specified, updated realtime"; required
- *   `from_symbol` / `to_symbol` (three-letter forex symbols, e.g.
- *   to_symbol=USD); optional `outputsize` (default `compact`) and
- *   `datatype`; `apikey` query-parameter authentication (no header option
- *   is documented, so the key travels in the URL — another reason this
- *   adapter may only ever run behind a server boundary; request URLs are
- *   never surfaced in messages, logs or state).
+ * Live-verified against the API itself (plus official docs:
+ * https://www.alphavantage.co/documentation and /support):
+ * - Base URL `https://www.alphavantage.co/query`; `function=FX_DAILY` with
+ *   `from_symbol=EUR&to_symbol=USD` answered HTTP 200 with the documented
+ *   success shape: top-level `Meta Data` + `Time Series FX (Daily)`,
+ *   date-only descending row keys `1. open` / `2. high` / `3. low` /
+ *   `4. close` (FX rows carry no volume field), `outputsize=full`
+ *   returning 5000 entries back to 2007-08-03 on the free tier.
+ * - `Meta Data` numbering shifts with `4. Output Size` (full-size
+ *   responses number the timezone `6. Time Zone`; compact `5. Time Zone`).
+ * - Auth: `apikey` query parameter (no header option is documented);
+ *   request URLs are never surfaced in messages, logs or state.
+ * - Error/rate-limit payloads: body-level `Information` observed live
+ *   (including the request-spacing notice), plus the documented `Note`
+ *   and `Error Message` keys — all HTTP 200 without a series.
  * - Free tier: 25 API requests per day; "unlimited API requests for
  *   verified open-source or educational projects" (official support page).
- * - Live probe (demo key, 2026-10-03): FX_DAILY is NOT covered by the
- *   demo key — the API answered HTTP 200 with an `Information` body
- *   ("The **demo** API key is for demo purposes only…").
  *
- * NOT YET VERIFIED (why status is UNVERIFIED):
- * - The exact success payload keys (`Time Series FX (Daily)` series key,
- *   `Meta Data` field names incl. the timezone field) — corroborated only
- *   by secondary sources, not extracted from the official docs page.
- * - Whether `outputsize=full` is free for FX; FX historical depth on the
- *   free plan; weekend/holiday row behavior; the HTTP/body shapes actually
- *   used for rate-limit and error responses.
+ * Remaining open items (they do not gate the daily parser):
+ * - Weekend/holiday row behavior is not conclusively pinned.
+ * - The daily candle-boundary timezone for FX is still not declared by
+ *   the docs → AV_BOUNDARY stays AMBIGUOUS, timestamps are preserved
+ *   verbatim, and the response's `Time Zone` label (UTC) is treated as
+ *   metadata, not a boundary declaration.
  *
- * The parser below therefore implements the *expected* contract STRICTLY
- * (any deviation → MALFORMED/CONTRACT_MISMATCH, never a guess) and the
- * provider stays out of the fallback chain until verification completes.
+ * The parser implements the contract STRICTLY (any deviation →
+ * MALFORMED/CONTRACT_MISMATCH, never a guess).
  */
 import type { MarketBar } from '@/domain/market/bar';
 import type { CandleBoundaryInfo } from '@/domain/market/boundary';
@@ -53,7 +52,7 @@ import {
 
 export const ALPHA_VANTAGE_BASE_URL = 'https://www.alphavantage.co/query';
 
-/** Expected (UNVERIFIED) series key: corroborated by secondary sources only. */
+/** Live-verified series key (2026-10-03): the only series container of a success payload. */
 const FX_DAILY_SERIES_KEY = 'Time Series FX (Daily)';
 
 const AV_BOUNDARY: CandleBoundaryInfo = {
@@ -63,7 +62,7 @@ const AV_BOUNDARY: CandleBoundaryInfo = {
 };
 
 export interface AlphaVantageConfig {
-  /** Server-supplied credential; the adapter stays disabled regardless (UNVERIFIED). */
+  /** Server-supplied credential; null/absent keeps the adapter DISABLED. */
   readonly apiKey: string | null;
   readonly baseUrl?: string;
   readonly transport?: ProviderTransport;
@@ -89,8 +88,8 @@ function toFiniteNumber(value: unknown): number | null {
 export class AlphaVantageAdapter implements ProviderAdapter {
   readonly id = 'ALPHA_VANTAGE' as const;
   readonly label = 'Alpha Vantage';
-  /** Hard-disabled until the open contract items listed in the header are verified. */
-  readonly verification: ProviderVerification = 'UNVERIFIED';
+  /** Live-verified contract (2026-10-03); still credential-gated by isEnabled(). */
+  readonly verification: ProviderVerification = 'VERIFIED';
 
   private readonly apiKey: string | null;
   private readonly baseUrl: string;
@@ -123,7 +122,7 @@ export class AlphaVantageAdapter implements ProviderAdapter {
       return failure('CONFIGURATION', 'Alpha Vantage is not configured (no server-side credential)');
     }
     if (request.timeframe !== 'DAILY') {
-      // FX_WEEKLY exists but is deliberately not implemented while unverified.
+      // FX_WEEKLY exists but is deliberately out of scope for this emergency adapter.
       return failure('UNSUPPORTED', `Alpha Vantage FX_DAILY does not serve timeframe ${request.timeframe} here`);
     }
     if (!isSixLetterSymbol(request.instrument)) {
@@ -136,8 +135,9 @@ export class AlphaVantageAdapter implements ProviderAdapter {
     url.searchParams.set('function', 'FX_DAILY');
     url.searchParams.set('from_symbol', fromSymbol);
     url.searchParams.set('to_symbol', toSymbol);
-    // Only the documented `compact` (latest 100 points) is used: free-tier
-    // access to `outputsize=full` for FX is not verified.
+    // `compact` (latest 100 points) is used deliberately: `outputsize=full`
+    // was live-verified free for FX (5000 entries), but a 100-bar payload
+    // is sufficient for the emergency path and keeps quota usage small.
     url.searchParams.set('outputsize', 'compact');
     url.searchParams.set('apikey', this.apiKey ?? '');
 
@@ -229,7 +229,14 @@ export class AlphaVantageAdapter implements ProviderAdapter {
     }
     bars.sort((a, b) => Date.parse(a.timestamp) - Date.parse(b.timestamp));
 
-    const timezone = typeof meta['5. Time Zone'] === 'string' ? meta['5. Time Zone'] : undefined;
+    // Compact responses number it `5. Time Zone`; full-size responses
+    // insert `4. Output Size` and shift it to `6. Time Zone`
+    // (live-verified 2026-10-03).
+    const timezone = typeof meta['5. Time Zone'] === 'string'
+      ? meta['5. Time Zone']
+      : typeof meta['6. Time Zone'] === 'string'
+        ? meta['6. Time Zone']
+        : undefined;
     const dataset: ProviderDataset = {
       providerId: this.id,
       providerLabel: this.label,
@@ -250,15 +257,16 @@ export class AlphaVantageAdapter implements ProviderAdapter {
 
   /**
    * A 200 body without the expected series is an error payload. Classification
-   * uses documented Alpha Vantage message keys and wording heuristics; while
-   * the adapter is UNVERIFIED these paths are unreachable in production and
-   * pinned only by tests.
+   * uses documented Alpha Vantage message keys and wording heuristics. The
+   * `Information` path was observed live (2026-10-03): the free tier answers
+   * HTTP 200 with an `Information` body instead of data when it wants
+   * request spacing or the daily quota is exhausted.
    */
   private classifyBodyWithoutSeries(body: Record<string, unknown>): ProviderAdapterResult {
     const note = [body.Information, body.Note, body['Error Message']]
       .find((v) => typeof v === 'string') as string | undefined;
     const text = note ?? 'unexpected payload without a time series';
-    if (/rate limit|per day|frequency|too many/i.test(text)) {
+    if (/rate limit|per day|frequency|too many|per second|sparingly/i.test(text)) {
       return failure('RATE_LIMITED', `Alpha Vantage: ${this.sanitize(text)}`);
     }
     if (/demo|api ?key/i.test(text)) {

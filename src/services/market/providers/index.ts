@@ -8,11 +8,14 @@
  * (TWELVEDATA_API_KEY / MASSIVE_API_KEY / ALPHAVANTAGE_API_KEY — server env
  * only, never client code, never this bundle).
  *
- * Provider contract status (verified against official documentation and,
- * for Twelve Data, a live demo-key probe — NOT merely TypeScript):
- * - Twelve Data   : VERIFIED   → enabled only with a server-side key
- * - Massive       : VERIFIED   → enabled only with a server-side key
- * - Alpha Vantage : UNVERIFIED → hard-disabled regardless of keys
+ * Provider contract status (verified against official documentation AND
+ * live contract probes with server-side keys, 2026-10-03 — NOT merely
+ * TypeScript):
+ * - Twelve Data   : VERIFIED → enabled only with a server-side key
+ * - Massive       : VERIFIED → enabled only with a server-side key
+ *                   (live: the free tier answers status "DELAYED", accepted)
+ * - Alpha Vantage : VERIFIED → enabled only with a server-side key
+ *                   (live FX_DAILY success shape confirmed)
  *
  * `currencyfreaks.ts` remains quarantined as incomplete, unverified work:
  * it is intentionally NOT re-exported here and must never be activated.

@@ -2,7 +2,8 @@
  * MarketDataRouter — deterministic multi-provider fallback (32T Phase 5).
  *
  * Fallback order (fixed, deterministic): Twelve Data (primary) → Massive
- * (fallback) → Alpha Vantage (emergency, hard-disabled while UNVERIFIED) →
+ * (fallback) → Alpha Vantage (emergency, contract VERIFIED 2026-10-03 —
+ * enabled only with a server-side key) →
  * cached last-valid snapshot → UNAVAILABLE.
  *
  * Fallback is CLASSIFIED, never blanket:
@@ -348,7 +349,7 @@ export class MarketDataRouter implements MarketDataProvider {
 
 /**
  * Default client-side router: every adapter constructed WITHOUT credentials —
- * all providers DISABLED (Alpha Vantage additionally UNVERIFIED). A future
+ * all providers DISABLED. A future
  * server-side boundary constructs the same router with server-held keys:
  *
  *   new MarketDataRouter([
@@ -366,7 +367,7 @@ export function createDefaultMarketDataRouter(options: MarketDataRouterOptions =
 
 /**
  * The default adapter set: all constructed WITHOUT credentials — every
- * provider DISABLED (Alpha Vantage additionally UNVERIFIED). Tests and the
+ * provider DISABLED. Tests and the
  * future server boundary pass their own adapter lists to `new MarketDataRouter(...)`.
  */
 export function createDefaultAdapters(): ProviderAdapter[] {

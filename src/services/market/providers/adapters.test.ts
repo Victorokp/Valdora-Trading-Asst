@@ -311,6 +311,23 @@ describe('Massive adapter', () => {
     expect(easternDate(Date.UTC(2021, 6, 21, 4, 0, 0))).toBe('2021-07-21'); // midnight-EDT window start
   });
 
+  it('accepts the live "DELAYED" success status with a well-formed results array', async () => {
+    // Live contract evidence (2026-10-03): the free Currencies tier answers
+    // HTTP 200 with status "DELAYED" and a full results array. Regression:
+    // the adapter used to reject it as an error.
+    const result = await mvAdapter(recorder(() => json({ ...MV_SAMPLE, status: 'DELAYED' })).transport).getBars(req);
+    expect(result.ok).toBe(true);
+    if (!result.ok) throw new Error('expected success');
+    expect(result.dataset.bars.map((b) => b.timestamp)).toStrictEqual(['2021-07-21', '2021-07-22']);
+  });
+
+  it('rejects an unknown response status instead of serving it', async () => {
+    const result = await mvAdapter(recorder(() => json({ ...MV_SAMPLE, status: 'SOME_NEW_STATUS' })).transport).getBars(req);
+    expect(result.ok).toBe(false);
+    if (result.ok) throw new Error('expected failure');
+    expect(result.failure.kind).not.toBe('REQUEST_REJECTED');
+  });
+
   it('classifies documented HTTP error statuses', async () => {
     const cases: Array<[number, string]> = [
       [401, 'AUTH'],
@@ -376,8 +393,9 @@ describe('Massive adapter', () => {
 });
 
 // ---------------------------------------------------------------------------
-// Alpha Vantage — UNVERIFIED: hard-disabled in production, parser pinned only
-// by tests that temporarily force the verification flag on an instance.
+// Alpha Vantage — VERIFIED by live contract probe (2026-10-03). Parser and
+// classifier behavior stay pinned by fixtures; the hard-disable MECHANISM
+// (UNVERIFIED → never enabled, credential or not) is still regression-tested.
 // ---------------------------------------------------------------------------
 
 const AV_SERIES = {
@@ -408,10 +426,25 @@ function avAdapter(transport: ProviderTransport, options: { forceVerified?: bool
 }
 
 describe('Alpha Vantage adapter', () => {
+  it('reports VERIFIED after the live contract probe (2026-10-03)', () => {
+    const adapter = avAdapter(recorder(() => json(AV_SERIES)).transport);
+    expect(adapter.verification).toBe('VERIFIED');
+    expect(adapter.isEnabled()).toBe(true);
+  });
+
+  it('stays disabled without a server-side credential even though VERIFIED', async () => {
+    const { calls, transport } = recorder(() => json(AV_SERIES));
+    const adapter = avAdapter(transport, { apiKey: null });
+    expect(adapter.isEnabled()).toBe(false);
+    await expectFailure(await adapter.getBars(req), 'CONFIGURATION');
+    expect(calls).toHaveLength(0);
+  });
+
   it('stays hard-disabled while UNVERIFIED, even with a credential', async () => {
     const { calls, transport } = recorder(() => json(AV_SERIES));
     const adapter = avAdapter(transport);
-    expect(adapter.verification).toBe('UNVERIFIED');
+    // Mechanism regression: the UNVERIFIED gate is evaluated at request time.
+    Object.defineProperty(adapter, 'verification', { value: 'UNVERIFIED' });
     expect(adapter.isEnabled()).toBe(false);
     await expectFailure(await adapter.getBars(req), 'CONFIGURATION');
     expect(calls).toHaveLength(0);
@@ -435,7 +468,7 @@ describe('Alpha Vantage adapter', () => {
     expect(call.headers.Authorization).toBeUndefined();
   });
 
-  it('supports DAILY only while unverified', async () => {
+  it('supports DAILY only', async () => {
     const adapter = avAdapter(recorder(() => json(AV_SERIES)).transport, { forceVerified: true });
     await expectFailure(await adapter.getBars({ instrument: 'EURUSD', timeframe: 'WEEKLY', range: '4w' }), 'UNSUPPORTED');
   });
@@ -455,6 +488,14 @@ describe('Alpha Vantage adapter', () => {
     const rate = { Information: 'Thank you for using Alpha Vantage! Our standard API rate limit is 25 requests per day' };
     await expectFailure(
       await avAdapter(recorder(() => json(rate)).transport, { forceVerified: true }).getBars(req),
+      'RATE_LIMITED',
+    );
+    const spacing = {
+      Information:
+        'Thank you for using Alpha Vantage! Please consider spreading out your free API requests more sparingly (1 request per second).',
+    };
+    await expectFailure(
+      await avAdapter(recorder(() => json(spacing)).transport, { forceVerified: true }).getBars(req),
       'RATE_LIMITED',
     );
     const demo = { Information: 'The **demo** API key is for demo purposes only.' };
