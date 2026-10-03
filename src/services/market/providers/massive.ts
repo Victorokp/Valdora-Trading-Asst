@@ -67,6 +67,16 @@ const MASSIVE_BOUNDARY: CandleBoundaryInfo = {
   confidence: 'AMBIGUOUS',
 };
 
+/**
+ * Response `status` values accepted as success. The docs specify "OK"; a
+ * live probe of the free Currencies tier (2026-10-03) returned "DELAYED"
+ * with a full, well-formed `results` array — delayed recency is a data
+ * freshness property, not an error. Any other value (notably "ERROR")
+ * remains a provider failure so contract drift surfaces loudly instead of
+ * being served.
+ */
+const MASSIVE_SUCCESS_STATUSES: ReadonlySet<string> = new Set(['OK', 'DELAYED']);
+
 const TIMESPANS: Readonly<Record<string, 'day' | 'week'>> = {
   DAILY: 'day',
   WEEKLY: 'week',
@@ -196,7 +206,7 @@ export class MassiveAdapter implements ProviderAdapter {
     }
     const body = payload as Record<string, unknown>;
 
-    if (body.status !== 'OK') {
+    if (typeof body.status !== 'string' || !MASSIVE_SUCCESS_STATUSES.has(body.status)) {
       const providerMessage = typeof body.error === 'string' ? body.error : `status ${String(body.status)}`;
       return failure(this.classifyErrorText(providerMessage), this.sanitize(`Massive error: ${providerMessage}`));
     }
