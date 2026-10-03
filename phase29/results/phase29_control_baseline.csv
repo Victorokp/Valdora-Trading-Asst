@@ -1,0 +1,2 @@
+trades,wins,losses,win_rate_pct,gross_profit_R,gross_loss_R,profit_factor,total_R,average_R,max_drawdown_R,maximum_losing_streak,test_windows_profitable,oos_trade_count,oos_total_R,oos_profit_factor,oos_win_rate_pct,oos_max_drawdown_R
+115,49,66,42.6087,98.2644,-66.0,1.4889,32.2644,0.2806,-12.0,7,11,76,32.2552,1.8064,47.3684,-12.0

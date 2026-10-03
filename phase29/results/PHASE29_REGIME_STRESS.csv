@@ -1,0 +1,7 @@
+regime,trades,total_R,profit_factor,win_rate_pct,max_drawdown_R,small_sample
+vol_low,7,-1.0,0.8,28.5714,-4.0,True
+vol_mid,93,27.2644,1.5144,43.0108,-10.0,False
+vol_high,15,6.0,1.75,46.6667,-2.0,False
+trend_narrow,39,12.0091,1.5459,43.5897,-10.0,False
+trend_mid,37,2.2552,1.094,35.1351,-8.0,False
+trend_wide,39,18.0,1.9,48.7179,-5.0,False

@@ -1,0 +1,25 @@
+{
+  "seed": 20260929,
+  "permutations": 10000,
+  "null_total_R_pctl": {
+    "1": -37.7539,
+    "5": -26.2644,
+    "25": -11.7356,
+    "50": -0.0681,
+    "75": 10.2644,
+    "95": 26.2644,
+    "99": 38.0864
+  },
+  "observed_percentile_total_R": 97.75,
+  "p_null_ge_observed": 0.0225,
+  "null_maxDD_pctl": {
+    "1": -43.2644,
+    "5": -35.0799,
+    "50": -17.089,
+    "95": -8.8338
+  },
+  "observed_percentile_maxDD": 80.34,
+  "null_max_losing_streak_p50": 6,
+  "null_max_losing_streak_p95": 10,
+  "interpretation_guard": "Descriptive reference statistics under the stated fair-coin sign-randomization model; NOT a definitive p-value for the strategy (preregistered guard)."
+}

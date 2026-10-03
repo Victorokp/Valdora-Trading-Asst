@@ -1,0 +1,3622 @@
+{
+  "integrity": {
+    "golden_reference_sha256": "b0d84b156674a2d81e646acdeae014324e85f9906ce3e1071718269612454e95",
+    "dataset_sha256": "e0676d9232c87be36aed5db2317b0c80f3838b5e9d517afb319f092aa8fd0d52",
+    "baseline_ledger_sha256": "30d22be417fbdd0d3db011bce4b0ac2f785f088d30a8dc10900905e7ae2f70d0",
+    "expected_ledger_sha256": "30d22be417fbdd0d3db011bce4b0ac2f785f088d30a8dc10900905e7ae2f70d0",
+    "ledger_byte_identical": true,
+    "python": "3.14.7",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3",
+    "seed_27i": 20260926
+  },
+  "B_return_distribution": {
+    "total_R": 32.2644,
+    "mean_R": 0.2806,
+    "median_R": -1.0,
+    "std_R": 1.4928,
+    "skewness": 0.3033,
+    "top1_share_of_gross_profit": 0.022,
+    "top3_share_of_gross_profit": 0.0638,
+    "top5_share_of_gross_profit": 0.1045,
+    "top10_share_of_gross_profit": 0.2062,
+    "bottom1_R": -1.0,
+    "bottom3_R": -3.0,
+    "bottom5_R": -5.0,
+    "percentiles_R": {
+      "p5": -1.0,
+      "p10": -1.0,
+      "p25": -1.0,
+      "p50": -1.0,
+      "p75": 2.0,
+      "p90": 2.0,
+      "p95": 2.0
+    },
+    "pct_totalR_from_wins": 304.56,
+    "pct_totalR_from_losses": -204.56,
+    "totalR_after_removing_best_N": {
+      "top1": 30.0981,
+      "top3": 26.0,
+      "top5": 22.0,
+      "top10": 12.0
+    },
+    "robustness_verdict_diagnostics": {
+      "still_positive_after_top1": true,
+      "still_positive_after_top3": true,
+      "still_positive_after_top5": true,
+      "still_positive_after_top10": true
+    }
+  },
+  "C_temporal_stability": {
+    "year": {
+      "2004": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2005": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006": {
+        "trades": 7,
+        "total_R": 2.0,
+        "profit_factor": 1.5,
+        "win_rate_pct": 42.8571,
+        "average_R": 0.2857,
+        "max_drawdown_R": -4.0
+      },
+      "2007": {
+        "trades": 9,
+        "total_R": 0.0,
+        "profit_factor": 1.0,
+        "win_rate_pct": 33.3333,
+        "average_R": 0.0,
+        "max_drawdown_R": -2.0
+      },
+      "2008": {
+        "trades": 6,
+        "total_R": -2.9909,
+        "profit_factor": 0.4018,
+        "win_rate_pct": 16.6667,
+        "average_R": -0.4985,
+        "max_drawdown_R": -4.0
+      },
+      "2009": {
+        "trades": 11,
+        "total_R": 4.0,
+        "profit_factor": 1.6667,
+        "win_rate_pct": 45.4545,
+        "average_R": 0.3636,
+        "max_drawdown_R": -2.0
+      },
+      "2010": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -1.0
+      },
+      "2011": {
+        "trades": 5,
+        "total_R": 1.0,
+        "profit_factor": 1.3333,
+        "win_rate_pct": 40.0,
+        "average_R": 0.2,
+        "max_drawdown_R": -2.0
+      },
+      "2012": {
+        "trades": 4,
+        "total_R": 2.089,
+        "profit_factor": 2.0445,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5222,
+        "max_drawdown_R": -1.0
+      },
+      "2013": {
+        "trades": 8,
+        "total_R": 7.0,
+        "profit_factor": 3.3333,
+        "win_rate_pct": 62.5,
+        "average_R": 0.875,
+        "max_drawdown_R": -3.0
+      },
+      "2014": {
+        "trades": 3,
+        "total_R": -3.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2015": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2016": {
+        "trades": 4,
+        "total_R": 2.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -1.0
+      },
+      "2017": {
+        "trades": 7,
+        "total_R": 8.0,
+        "profit_factor": 5.0,
+        "win_rate_pct": 71.4286,
+        "average_R": 1.1429,
+        "max_drawdown_R": -2.0
+      },
+      "2018": {
+        "trades": 8,
+        "total_R": 1.1662,
+        "profit_factor": 1.2332,
+        "win_rate_pct": 37.5,
+        "average_R": 0.1458,
+        "max_drawdown_R": -5.0
+      },
+      "2020": {
+        "trades": 7,
+        "total_R": -4.0,
+        "profit_factor": 0.3333,
+        "win_rate_pct": 14.2857,
+        "average_R": -0.5714,
+        "max_drawdown_R": -4.0
+      },
+      "2021": {
+        "trades": 5,
+        "total_R": -2.0,
+        "profit_factor": 0.5,
+        "win_rate_pct": 20.0,
+        "average_R": -0.4,
+        "max_drawdown_R": -2.0
+      },
+      "2023": {
+        "trades": 4,
+        "total_R": 5.0,
+        "profit_factor": 6.0,
+        "win_rate_pct": 75.0,
+        "average_R": 1.25,
+        "max_drawdown_R": -1.0
+      },
+      "2024": {
+        "trades": 5,
+        "total_R": 1.0,
+        "profit_factor": 1.3333,
+        "win_rate_pct": 40.0,
+        "average_R": 0.2,
+        "max_drawdown_R": -1.0
+      },
+      "2025": {
+        "trades": 13,
+        "total_R": 11.0,
+        "profit_factor": 3.2,
+        "win_rate_pct": 61.5385,
+        "average_R": 0.8462,
+        "max_drawdown_R": -3.0
+      },
+      "2026": {
+        "trades": 3,
+        "total_R": -3.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -2.0
+      }
+    },
+    "quarter": {
+      "2004Q3": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2004Q4": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2005Q1": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006Q2": {
+        "trades": 2,
+        "total_R": 4.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006Q3": {
+        "trades": 4,
+        "total_R": -1.0,
+        "profit_factor": 0.6667,
+        "win_rate_pct": 25.0,
+        "average_R": -0.25,
+        "max_drawdown_R": -3.0
+      },
+      "2006Q4": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2007Q1": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": 0.0
+      },
+      "2007Q2": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2007Q3": {
+        "trades": 3,
+        "total_R": 3.0,
+        "profit_factor": 4.0,
+        "win_rate_pct": 66.6667,
+        "average_R": 1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2007Q4": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2008Q1": {
+        "trades": 4,
+        "total_R": -4.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -3.0
+      },
+      "2008Q2": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2008Q3": {
+        "trades": 1,
+        "total_R": 2.0091,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0091,
+        "max_drawdown_R": 0.0
+      },
+      "2009Q2": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2009Q3": {
+        "trades": 7,
+        "total_R": 5.0,
+        "profit_factor": 2.6667,
+        "win_rate_pct": 57.1429,
+        "average_R": 0.7143,
+        "max_drawdown_R": -2.0
+      },
+      "2009Q4": {
+        "trades": 3,
+        "total_R": -0.0,
+        "profit_factor": 1.0,
+        "win_rate_pct": 33.3333,
+        "average_R": -0.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010Q4": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -1.0
+      },
+      "2011Q1": {
+        "trades": 3,
+        "total_R": 3.0,
+        "profit_factor": 4.0,
+        "win_rate_pct": 66.6667,
+        "average_R": 1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2011Q2": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2011Q3": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2012Q4": {
+        "trades": 4,
+        "total_R": 2.089,
+        "profit_factor": 2.0445,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5222,
+        "max_drawdown_R": -1.0
+      },
+      "2013Q1": {
+        "trades": 3,
+        "total_R": 3.0,
+        "profit_factor": 4.0,
+        "win_rate_pct": 66.6667,
+        "average_R": 1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2013Q3": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2013Q4": {
+        "trades": 4,
+        "total_R": 5.0,
+        "profit_factor": 6.0,
+        "win_rate_pct": 75.0,
+        "average_R": 1.25,
+        "max_drawdown_R": 0.0
+      },
+      "2014Q1": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2014Q2": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2015Q4": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2016Q1": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2016Q2": {
+        "trades": 3,
+        "total_R": 3.0,
+        "profit_factor": 4.0,
+        "win_rate_pct": 66.6667,
+        "average_R": 1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2017Q2": {
+        "trades": 2,
+        "total_R": 4.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017Q3": {
+        "trades": 2,
+        "total_R": 4.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017Q4": {
+        "trades": 3,
+        "total_R": 0.0,
+        "profit_factor": 1.0,
+        "win_rate_pct": 33.3333,
+        "average_R": 0.0,
+        "max_drawdown_R": -1.0
+      },
+      "2018Q1": {
+        "trades": 6,
+        "total_R": 3.1662,
+        "profit_factor": 2.0554,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5277,
+        "max_drawdown_R": -3.0
+      },
+      "2018Q2": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2020Q1": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2020Q3": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2020Q4": {
+        "trades": 4,
+        "total_R": -4.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -3.0
+      },
+      "2021Q1": {
+        "trades": 3,
+        "total_R": -3.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2021Q2": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -1.0
+      },
+      "2023Q1": {
+        "trades": 2,
+        "total_R": 4.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023Q3": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -1.0
+      },
+      "2024Q1": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2024Q3": {
+        "trades": 3,
+        "total_R": 3.0,
+        "profit_factor": 4.0,
+        "win_rate_pct": 66.6667,
+        "average_R": 1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2025Q2": {
+        "trades": 5,
+        "total_R": 7.0,
+        "profit_factor": 8.0,
+        "win_rate_pct": 80.0,
+        "average_R": 1.4,
+        "max_drawdown_R": -1.0
+      },
+      "2025Q3": {
+        "trades": 8,
+        "total_R": 4.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -2.0
+      },
+      "2026Q1": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2026Q2": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      }
+    },
+    "month": {
+      "2004-08": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2004-10": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2005-03": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-04": {
+        "trades": 2,
+        "total_R": 4.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-08": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-09": {
+        "trades": 3,
+        "total_R": -3.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2006-12": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2007-03": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": 0.0
+      },
+      "2007-05": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2007-06": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2007-07": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2007-08": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2007-09": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2007-12": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2008-01": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2008-02": {
+        "trades": 3,
+        "total_R": -3.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2008-05": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2008-07": {
+        "trades": 1,
+        "total_R": 2.0091,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0091,
+        "max_drawdown_R": 0.0
+      },
+      "2009-06": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2009-07": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2009-08": {
+        "trades": 5,
+        "total_R": 4.0,
+        "profit_factor": 3.0,
+        "win_rate_pct": 60.0,
+        "average_R": 0.8,
+        "max_drawdown_R": -2.0
+      },
+      "2009-09": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2009-10": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2009-12": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2010-11": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -1.0
+      },
+      "2011-02": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": 0.0
+      },
+      "2011-03": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2011-06": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2011-09": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2012-10": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": 0.0
+      },
+      "2012-11": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2012-12": {
+        "trades": 1,
+        "total_R": 2.089,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.089,
+        "max_drawdown_R": 0.0
+      },
+      "2013-01": {
+        "trades": 2,
+        "total_R": 4.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2013-02": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2013-08": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2013-10": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2013-12": {
+        "trades": 3,
+        "total_R": 6.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2014-03": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2014-04": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2015-10": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2016-03": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2016-04": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2016-05": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -1.0
+      },
+      "2017-05": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-06": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-07": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-08": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-10": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2017-12": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2018-01": {
+        "trades": 1,
+        "total_R": 2.1662,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.1662,
+        "max_drawdown_R": 0.0
+      },
+      "2018-02": {
+        "trades": 3,
+        "total_R": 3.0,
+        "profit_factor": 4.0,
+        "win_rate_pct": 66.6667,
+        "average_R": 1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2018-03": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2018-04": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2020-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2020-07": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2020-10": {
+        "trades": 4,
+        "total_R": -4.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -3.0
+      },
+      "2021-01": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2021-02": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2021-03": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2021-05": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2021-06": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-03": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-07": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -1.0
+      },
+      "2024-01": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2024-03": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2024-08": {
+        "trades": 1,
+        "total_R": 2.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2024-09": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": 0.0
+      },
+      "2025-04": {
+        "trades": 2,
+        "total_R": 1.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "average_R": 0.5,
+        "max_drawdown_R": -1.0
+      },
+      "2025-06": {
+        "trades": 3,
+        "total_R": 6.0,
+        "profit_factor": null,
+        "win_rate_pct": 100.0,
+        "average_R": 2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2025-07": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2025-08": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2025-09": {
+        "trades": 6,
+        "total_R": 6.0,
+        "profit_factor": 4.0,
+        "win_rate_pct": 66.6667,
+        "average_R": 1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2026-03": {
+        "trades": 1,
+        "total_R": -1.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2026-05": {
+        "trades": 2,
+        "total_R": -2.0,
+        "profit_factor": 0.0,
+        "win_rate_pct": 0.0,
+        "average_R": -1.0,
+        "max_drawdown_R": -1.0
+      }
+    },
+    "rolling_12m": {
+      "2005-07-01": {
+        "trades": 3,
+        "total_R": -0.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2005-08-01": {
+        "trades": 2,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2005-09-01": {
+        "trades": 2,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2005-10-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2005-11-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2005-12-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-01-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-02-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-03-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-04-01": {
+        "trades": 2,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-05-01": {
+        "trades": 2,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-06-01": {
+        "trades": 2,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-07-01": {
+        "trades": 2,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-08-01": {
+        "trades": 3,
+        "total_R": 6.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2006-09-01": {
+        "trades": 6,
+        "total_R": 3.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -3.0
+      },
+      "2006-10-01": {
+        "trades": 6,
+        "total_R": 3.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -3.0
+      },
+      "2006-11-01": {
+        "trades": 6,
+        "total_R": 3.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -3.0
+      },
+      "2006-12-01": {
+        "trades": 7,
+        "total_R": 2.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -4.0
+      },
+      "2007-01-01": {
+        "trades": 7,
+        "total_R": 2.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -4.0
+      },
+      "2007-02-01": {
+        "trades": 7,
+        "total_R": 2.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -4.0
+      },
+      "2007-03-01": {
+        "trades": 9,
+        "total_R": 3.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -4.0
+      },
+      "2007-04-01": {
+        "trades": 7,
+        "total_R": -1.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -4.0
+      },
+      "2007-05-01": {
+        "trades": 8,
+        "total_R": -2.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -4.0
+      },
+      "2007-06-01": {
+        "trades": 9,
+        "total_R": -3.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -5.0
+      },
+      "2007-07-01": {
+        "trades": 10,
+        "total_R": -1.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -5.0
+      },
+      "2007-08-01": {
+        "trades": 10,
+        "total_R": -4.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -2.0
+      },
+      "2007-09-01": {
+        "trades": 8,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2007-10-01": {
+        "trades": 8,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2007-11-01": {
+        "trades": 8,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2007-12-01": {
+        "trades": 9,
+        "total_R": 0.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2008-01-01": {
+        "trades": 10,
+        "total_R": -1.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2008-02-01": {
+        "trades": 13,
+        "total_R": -4.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -6.0
+      },
+      "2008-03-01": {
+        "trades": 11,
+        "total_R": -5.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -6.0
+      },
+      "2008-04-01": {
+        "trades": 11,
+        "total_R": -5.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -6.0
+      },
+      "2008-05-01": {
+        "trades": 11,
+        "total_R": -5.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -7.0
+      },
+      "2008-06-01": {
+        "trades": 10,
+        "total_R": -4.0,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -7.0
+      },
+      "2008-07-01": {
+        "trades": 10,
+        "total_R": -3.9909,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -7.0
+      },
+      "2008-08-01": {
+        "trades": 9,
+        "total_R": -2.9909,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -7.0
+      },
+      "2008-09-01": {
+        "trades": 8,
+        "total_R": -4.9909,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -7.0
+      },
+      "2008-10-01": {
+        "trades": 8,
+        "total_R": -4.9909,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -7.0
+      },
+      "2008-11-01": {
+        "trades": 8,
+        "total_R": -4.9909,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -5.0
+      },
+      "2008-12-01": {
+        "trades": 6,
+        "total_R": -2.9909,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -4.0
+      },
+      "2009-01-01": {
+        "trades": 5,
+        "total_R": -1.9909,
+        "min_monthly_R": -3.0,
+        "max_drawdown_R": -1.0
+      },
+      "2009-02-01": {
+        "trades": 2,
+        "total_R": 1.0091,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2009-03-01": {
+        "trades": 2,
+        "total_R": 1.0091,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2009-04-01": {
+        "trades": 2,
+        "total_R": 1.0091,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2009-05-01": {
+        "trades": 1,
+        "total_R": 2.0091,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2009-06-01": {
+        "trades": 2,
+        "total_R": 1.0091,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2009-07-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2009-08-01": {
+        "trades": 7,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2009-09-01": {
+        "trades": 8,
+        "total_R": 4.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2009-10-01": {
+        "trades": 9,
+        "total_R": 6.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2009-11-01": {
+        "trades": 9,
+        "total_R": 6.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2009-12-01": {
+        "trades": 11,
+        "total_R": 4.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-01-01": {
+        "trades": 11,
+        "total_R": 4.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-02-01": {
+        "trades": 11,
+        "total_R": 4.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-03-01": {
+        "trades": 11,
+        "total_R": 4.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-04-01": {
+        "trades": 11,
+        "total_R": 4.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-05-01": {
+        "trades": 11,
+        "total_R": 4.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-06-01": {
+        "trades": 10,
+        "total_R": 5.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-07-01": {
+        "trades": 9,
+        "total_R": 6.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-08-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-09-01": {
+        "trades": 3,
+        "total_R": -0.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-10-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2010-11-01": {
+        "trades": 4,
+        "total_R": -1.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2010-12-01": {
+        "trades": 2,
+        "total_R": 1.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2011-01-01": {
+        "trades": 2,
+        "total_R": 1.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2011-02-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2011-03-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2011-04-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2011-05-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2011-06-01": {
+        "trades": 6,
+        "total_R": 3.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2011-07-01": {
+        "trades": 6,
+        "total_R": 3.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2011-08-01": {
+        "trades": 6,
+        "total_R": 3.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2011-09-01": {
+        "trades": 7,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2011-10-01": {
+        "trades": 7,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2011-11-01": {
+        "trades": 5,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2011-12-01": {
+        "trades": 5,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2012-01-01": {
+        "trades": 5,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2012-02-01": {
+        "trades": 3,
+        "total_R": 0.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2012-03-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2012-04-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2012-05-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2012-06-01": {
+        "trades": 1,
+        "total_R": -1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2012-07-01": {
+        "trades": 1,
+        "total_R": -1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2012-08-01": {
+        "trades": 1,
+        "total_R": -1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2012-09-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2012-10-01": {
+        "trades": 2,
+        "total_R": 1.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2012-11-01": {
+        "trades": 3,
+        "total_R": -0.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2012-12-01": {
+        "trades": 4,
+        "total_R": 2.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2013-01-01": {
+        "trades": 6,
+        "total_R": 6.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2013-02-01": {
+        "trades": 7,
+        "total_R": 5.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2013-03-01": {
+        "trades": 7,
+        "total_R": 5.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2013-04-01": {
+        "trades": 7,
+        "total_R": 5.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2013-05-01": {
+        "trades": 7,
+        "total_R": 5.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2013-06-01": {
+        "trades": 7,
+        "total_R": 5.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2013-07-01": {
+        "trades": 7,
+        "total_R": 5.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2013-08-01": {
+        "trades": 8,
+        "total_R": 4.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2013-09-01": {
+        "trades": 8,
+        "total_R": 4.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2013-10-01": {
+        "trades": 7,
+        "total_R": 2.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -3.0
+      },
+      "2013-11-01": {
+        "trades": 6,
+        "total_R": 3.089,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -3.0
+      },
+      "2013-12-01": {
+        "trades": 8,
+        "total_R": 7.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -3.0
+      },
+      "2014-01-01": {
+        "trades": 6,
+        "total_R": 3.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2014-02-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2014-03-01": {
+        "trades": 6,
+        "total_R": 3.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2014-04-01": {
+        "trades": 8,
+        "total_R": 1.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2014-05-01": {
+        "trades": 8,
+        "total_R": 1.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2014-06-01": {
+        "trades": 8,
+        "total_R": 1.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2014-07-01": {
+        "trades": 8,
+        "total_R": 1.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2014-08-01": {
+        "trades": 7,
+        "total_R": 2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2014-09-01": {
+        "trades": 7,
+        "total_R": 2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2014-10-01": {
+        "trades": 6,
+        "total_R": 3.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2014-11-01": {
+        "trades": 6,
+        "total_R": 3.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2014-12-01": {
+        "trades": 3,
+        "total_R": -3.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2015-01-01": {
+        "trades": 3,
+        "total_R": -3.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      },
+      "2015-02-01": {
+        "trades": 3,
+        "total_R": -3.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2015-03-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2015-04-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2015-05-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2015-06-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2015-07-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2015-08-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2015-09-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2015-10-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2015-11-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2015-12-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2016-01-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2016-02-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2016-03-01": {
+        "trades": 2,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2016-04-01": {
+        "trades": 3,
+        "total_R": 3.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2016-05-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2016-06-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2016-07-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2016-08-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2016-09-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2016-10-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2016-11-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2016-12-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2017-01-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2017-02-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-03-01": {
+        "trades": 3,
+        "total_R": 3.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-04-01": {
+        "trades": 2,
+        "total_R": 1.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-05-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-06-01": {
+        "trades": 2,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-07-01": {
+        "trades": 3,
+        "total_R": 6.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-08-01": {
+        "trades": 4,
+        "total_R": 8.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-09-01": {
+        "trades": 4,
+        "total_R": 8.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2017-10-01": {
+        "trades": 6,
+        "total_R": 6.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2017-11-01": {
+        "trades": 6,
+        "total_R": 6.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2017-12-01": {
+        "trades": 7,
+        "total_R": 8.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2018-01-01": {
+        "trades": 8,
+        "total_R": 10.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2018-02-01": {
+        "trades": 11,
+        "total_R": 13.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2018-03-01": {
+        "trades": 13,
+        "total_R": 11.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2018-04-01": {
+        "trades": 15,
+        "total_R": 9.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -4.0
+      },
+      "2018-05-01": {
+        "trades": 14,
+        "total_R": 7.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -4.0
+      },
+      "2018-06-01": {
+        "trades": 13,
+        "total_R": 5.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -4.0
+      },
+      "2018-07-01": {
+        "trades": 12,
+        "total_R": 3.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -4.0
+      },
+      "2018-08-01": {
+        "trades": 11,
+        "total_R": 1.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -4.0
+      },
+      "2018-09-01": {
+        "trades": 11,
+        "total_R": 1.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -4.0
+      },
+      "2018-10-01": {
+        "trades": 9,
+        "total_R": 3.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -4.0
+      },
+      "2018-11-01": {
+        "trades": 9,
+        "total_R": 3.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -4.0
+      },
+      "2018-12-01": {
+        "trades": 8,
+        "total_R": 1.1662,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -4.0
+      },
+      "2019-01-01": {
+        "trades": 7,
+        "total_R": -1.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -4.0
+      },
+      "2019-02-01": {
+        "trades": 4,
+        "total_R": -4.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2019-03-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": 0.0
+      },
+      "2019-04-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2019-05-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2019-06-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2019-07-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2019-08-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2019-09-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2019-10-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2019-11-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2019-12-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2020-01-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2020-02-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2020-03-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2020-04-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2020-05-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2020-06-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2020-07-01": {
+        "trades": 3,
+        "total_R": 0.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2020-08-01": {
+        "trades": 3,
+        "total_R": 0.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2020-09-01": {
+        "trades": 3,
+        "total_R": 0.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -2.0
+      },
+      "2020-10-01": {
+        "trades": 7,
+        "total_R": -4.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -4.0
+      },
+      "2020-11-01": {
+        "trades": 7,
+        "total_R": -4.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -4.0
+      },
+      "2020-12-01": {
+        "trades": 7,
+        "total_R": -4.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -4.0
+      },
+      "2021-01-01": {
+        "trades": 6,
+        "total_R": -3.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -5.0
+      },
+      "2021-02-01": {
+        "trades": 7,
+        "total_R": -4.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -6.0
+      },
+      "2021-03-01": {
+        "trades": 8,
+        "total_R": -5.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -7.0
+      },
+      "2021-04-01": {
+        "trades": 8,
+        "total_R": -5.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -7.0
+      },
+      "2021-05-01": {
+        "trades": 9,
+        "total_R": -3.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -7.0
+      },
+      "2021-06-01": {
+        "trades": 10,
+        "total_R": -4.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -7.0
+      },
+      "2021-07-01": {
+        "trades": 9,
+        "total_R": -6.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -7.0
+      },
+      "2021-08-01": {
+        "trades": 9,
+        "total_R": -6.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -7.0
+      },
+      "2021-09-01": {
+        "trades": 9,
+        "total_R": -6.0,
+        "min_monthly_R": -4.0,
+        "max_drawdown_R": -3.0
+      },
+      "2021-10-01": {
+        "trades": 5,
+        "total_R": -2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -3.0
+      },
+      "2021-11-01": {
+        "trades": 5,
+        "total_R": -2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -3.0
+      },
+      "2021-12-01": {
+        "trades": 5,
+        "total_R": -2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2022-01-01": {
+        "trades": 4,
+        "total_R": -1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2022-02-01": {
+        "trades": 3,
+        "total_R": 0.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2022-03-01": {
+        "trades": 2,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2022-04-01": {
+        "trades": 2,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2022-05-01": {
+        "trades": 1,
+        "total_R": -1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2022-06-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2022-07-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2022-08-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2022-09-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2022-10-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2022-11-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2022-12-01": {
+        "trades": 0,
+        "total_R": 0.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-01-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-02-01": {
+        "trades": 1,
+        "total_R": 2.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-03-01": {
+        "trades": 2,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-04-01": {
+        "trades": 2,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-05-01": {
+        "trades": 2,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-06-01": {
+        "trades": 2,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-07-01": {
+        "trades": 4,
+        "total_R": 5.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-08-01": {
+        "trades": 4,
+        "total_R": 5.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-09-01": {
+        "trades": 4,
+        "total_R": 5.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-10-01": {
+        "trades": 4,
+        "total_R": 5.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-11-01": {
+        "trades": 4,
+        "total_R": 5.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2023-12-01": {
+        "trades": 4,
+        "total_R": 5.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2024-01-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2024-02-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2024-03-01": {
+        "trades": 4,
+        "total_R": -1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2024-04-01": {
+        "trades": 4,
+        "total_R": -1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2024-05-01": {
+        "trades": 4,
+        "total_R": -1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2024-06-01": {
+        "trades": 4,
+        "total_R": -1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2024-07-01": {
+        "trades": 2,
+        "total_R": -2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2024-08-01": {
+        "trades": 3,
+        "total_R": 0.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2024-09-01": {
+        "trades": 5,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2024-10-01": {
+        "trades": 5,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2024-11-01": {
+        "trades": 5,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2024-12-01": {
+        "trades": 5,
+        "total_R": 1.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2025-01-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2025-02-01": {
+        "trades": 4,
+        "total_R": 2.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": 0.0
+      },
+      "2025-03-01": {
+        "trades": 3,
+        "total_R": 3.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2025-04-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2025-05-01": {
+        "trades": 5,
+        "total_R": 4.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2025-06-01": {
+        "trades": 8,
+        "total_R": 10.0,
+        "min_monthly_R": 0.0,
+        "max_drawdown_R": 0.0
+      },
+      "2025-07-01": {
+        "trades": 9,
+        "total_R": 9.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -1.0
+      },
+      "2025-08-01": {
+        "trades": 9,
+        "total_R": 6.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2025-09-01": {
+        "trades": 13,
+        "total_R": 11.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2025-10-01": {
+        "trades": 13,
+        "total_R": 11.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2025-11-01": {
+        "trades": 13,
+        "total_R": 11.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2025-12-01": {
+        "trades": 13,
+        "total_R": 11.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2026-01-01": {
+        "trades": 13,
+        "total_R": 11.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2026-02-01": {
+        "trades": 13,
+        "total_R": 11.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2026-03-01": {
+        "trades": 14,
+        "total_R": 10.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2026-04-01": {
+        "trades": 12,
+        "total_R": 9.0,
+        "min_monthly_R": -1.0,
+        "max_drawdown_R": -2.0
+      },
+      "2026-05-01": {
+        "trades": 14,
+        "total_R": 7.0,
+        "min_monthly_R": -2.0,
+        "max_drawdown_R": -3.0
+      }
+    }
+  },
+  "D_regime_descriptives": {
+    "weekly_ema_separation_pct": {
+      "q1_low": {
+        "trades": 29,
+        "total_R": 10.089,
+        "profit_factor": 1.6306,
+        "win_rate_pct": 44.8276,
+        "average_R": 0.3479,
+        "max_drawdown_R": -4.0
+      },
+      "q2": {
+        "trades": 29,
+        "total_R": 16.1662,
+        "profit_factor": 2.1547,
+        "win_rate_pct": 51.7241,
+        "average_R": 0.5575,
+        "max_drawdown_R": -3.0
+      },
+      "q3": {
+        "trades": 28,
+        "total_R": -3.9909,
+        "profit_factor": 0.8005,
+        "win_rate_pct": 28.5714,
+        "average_R": -0.1425,
+        "max_drawdown_R": -8.9909
+      },
+      "q4_high": {
+        "trades": 29,
+        "total_R": 10.0,
+        "profit_factor": 1.625,
+        "win_rate_pct": 44.8276,
+        "average_R": 0.3448,
+        "max_drawdown_R": -4.0
+      }
+    },
+    "atr_pctile_100": {
+      "below_33": {
+        "trades": 53,
+        "total_R": 10.089,
+        "profit_factor": 1.3153,
+        "win_rate_pct": 39.6226,
+        "average_R": 0.1904,
+        "max_drawdown_R": -10.0
+      },
+      "33_67": {
+        "trades": 33,
+        "total_R": 21.1754,
+        "profit_factor": 2.4117,
+        "win_rate_pct": 54.5455,
+        "average_R": 0.6417,
+        "max_drawdown_R": -2.0
+      },
+      "above_67": {
+        "trades": 29,
+        "total_R": 1.0,
+        "profit_factor": 1.0526,
+        "win_rate_pct": 34.4828,
+        "average_R": 0.0345,
+        "max_drawdown_R": -7.0
+      }
+    },
+    "breakout_atr": {
+      "q1_low": {
+        "trades": 39,
+        "total_R": 6.0,
+        "profit_factor": 1.25,
+        "win_rate_pct": 38.4615,
+        "average_R": 0.1538,
+        "max_drawdown_R": -4.0
+      },
+      "q2": {
+        "trades": 38,
+        "total_R": 16.1754,
+        "profit_factor": 1.8088,
+        "win_rate_pct": 47.3684,
+        "average_R": 0.4257,
+        "max_drawdown_R": -8.0
+      },
+      "q3_high": {
+        "trades": 38,
+        "total_R": 10.089,
+        "profit_factor": 1.4586,
+        "win_rate_pct": 42.1053,
+        "average_R": 0.2655,
+        "max_drawdown_R": -5.0
+      }
+    },
+    "ema20_ema50_gap_atr": {
+      "q1_narrow": {
+        "trades": 29,
+        "total_R": 13.0091,
+        "profit_factor": 1.8673,
+        "win_rate_pct": 48.2759,
+        "average_R": 0.4486,
+        "max_drawdown_R": -5.0
+      },
+      "q2": {
+        "trades": 29,
+        "total_R": 1.089,
+        "profit_factor": 1.0573,
+        "win_rate_pct": 34.4828,
+        "average_R": 0.0376,
+        "max_drawdown_R": -9.911
+      },
+      "q3": {
+        "trades": 28,
+        "total_R": 2.1662,
+        "profit_factor": 1.1203,
+        "win_rate_pct": 35.7143,
+        "average_R": 0.0774,
+        "max_drawdown_R": -7.0
+      },
+      "q4_wide": {
+        "trades": 29,
+        "total_R": 16.0,
+        "profit_factor": 2.1429,
+        "win_rate_pct": 51.7241,
+        "average_R": 0.5517,
+        "max_drawdown_R": -4.0
+      }
+    },
+    "candle_range_atr": {
+      "q1_small": {
+        "trades": 39,
+        "total_R": 6.0,
+        "profit_factor": 1.25,
+        "win_rate_pct": 38.4615,
+        "average_R": 0.1538,
+        "max_drawdown_R": -12.0
+      },
+      "q2": {
+        "trades": 38,
+        "total_R": 13.0981,
+        "profit_factor": 1.6237,
+        "win_rate_pct": 44.7368,
+        "average_R": 0.3447,
+        "max_drawdown_R": -3.0
+      },
+      "q3_large": {
+        "trades": 38,
+        "total_R": 13.1662,
+        "profit_factor": 1.627,
+        "win_rate_pct": 44.7368,
+        "average_R": 0.3465,
+        "max_drawdown_R": -5.0
+      }
+    }
+  },
+  "E_multi_currency_transfer": {
+    "GBPUSD": {
+      "trades": 152,
+      "total_R": 4.4012,
+      "profit_factor": 1.044,
+      "win_rate_pct": 34.2105,
+      "average_R": 0.029,
+      "max_drawdown_R": -16.0,
+      "dataset_sha256": "e8f7c79ddf82409e623582b967d257a9d48b30e21db1081f21a8644235e8a189",
+      "yearly_total_R": {
+        "2004": -5.0,
+        "2005": -2.0,
+        "2006": -3.0,
+        "2007": -4.0,
+        "2009": -3.0,
+        "2010": 7.0,
+        "2011": -1.0,
+        "2012": 1.0,
+        "2013": 4.0,
+        "2014": 9.0,
+        "2015": -4.0,
+        "2017": -1.0,
+        "2018": 5.0,
+        "2019": -1.0,
+        "2020": -1.0,
+        "2021": -6.0,
+        "2023": 4.0,
+        "2024": -2.0,
+        "2025": 5.0,
+        "2026": 2.4012
+      },
+      "positive_years": 8,
+      "total_years": 20
+    },
+    "USDJPY": {
+      "trades": 118,
+      "total_R": 5.0,
+      "profit_factor": 1.0649,
+      "win_rate_pct": 34.7458,
+      "average_R": 0.0424,
+      "max_drawdown_R": -16.0,
+      "dataset_sha256": "03f49d95dae6d9c04879186ce4c189712d393963de20b479faaf3ad5f8718656",
+      "yearly_total_R": {
+        "2004": 0.0,
+        "2005": 2.0,
+        "2006": 0.0,
+        "2007": 2.0,
+        "2008": 0.0,
+        "2009": -1.0,
+        "2010": 0.0,
+        "2012": 2.0,
+        "2013": 5.0,
+        "2014": -1.0,
+        "2015": -3.0,
+        "2017": -3.0,
+        "2018": -1.0,
+        "2019": -1.0,
+        "2021": 3.0,
+        "2022": -1.0,
+        "2023": 3.0,
+        "2024": 3.0,
+        "2025": -1.0,
+        "2026": -3.0
+      },
+      "positive_years": 7,
+      "total_years": 20
+    },
+    "AUDUSD": {
+      "trades": 123,
+      "total_R": -8.9756,
+      "profit_factor": 0.8944,
+      "win_rate_pct": 30.8943,
+      "average_R": -0.073,
+      "max_drawdown_R": -23.0,
+      "dataset_sha256": "f23247fde8ceaa024e069c031d939311800e4bf708a8c59c27dba4c3d97ed6e3",
+      "yearly_total_R": {
+        "2004": -2.0,
+        "2005": -3.0,
+        "2006": -0.0,
+        "2007": 5.0244,
+        "2008": 3.0,
+        "2009": 7.0,
+        "2010": 1.0,
+        "2011": -7.0,
+        "2012": -6.0,
+        "2013": -1.0,
+        "2014": -4.0,
+        "2016": -1.0,
+        "2017": 2.0,
+        "2020": 1.0,
+        "2021": -2.0,
+        "2022": -1.0,
+        "2023": 0.0,
+        "2024": 5.0,
+        "2025": -3.0,
+        "2026": -3.0
+      },
+      "positive_years": 7,
+      "total_years": 20
+    }
+  },
+  "F_friction_sensitivity": [
+    {
+      "friction_pips": 0.0,
+      "trades": 115,
+      "total_R": 35.3125,
+      "profit_factor": 1.5433,
+      "win_rate_pct": 43.4783,
+      "average_R": 0.3071,
+      "max_drawdown_R": -12.0
+    },
+    {
+      "friction_pips": 0.5,
+      "trades": 115,
+      "total_R": 35.2964,
+      "profit_factor": 1.543,
+      "win_rate_pct": 43.4783,
+      "average_R": 0.3069,
+      "max_drawdown_R": -12.0
+    },
+    {
+      "friction_pips": 1.0,
+      "trades": 115,
+      "total_R": 35.2804,
+      "profit_factor": 1.5428,
+      "win_rate_pct": 43.4783,
+      "average_R": 0.3068,
+      "max_drawdown_R": -12.0
+    },
+    {
+      "friction_pips": 1.5,
+      "trades": 115,
+      "total_R": 32.2644,
+      "profit_factor": 1.4889,
+      "win_rate_pct": 42.6087,
+      "average_R": 0.2806,
+      "max_drawdown_R": -12.0,
+      "is_control": true
+    },
+    {
+      "friction_pips": 2.0,
+      "trades": 115,
+      "total_R": 32.2483,
+      "profit_factor": 1.4886,
+      "win_rate_pct": 42.6087,
+      "average_R": 0.2804,
+      "max_drawdown_R": -12.0
+    },
+    {
+      "friction_pips": 3.0,
+      "trades": 115,
+      "total_R": 32.2173,
+      "profit_factor": 1.4881,
+      "win_rate_pct": 42.6087,
+      "average_R": 0.2802,
+      "max_drawdown_R": -12.0
+    },
+    {
+      "friction_pips": 4.0,
+      "trades": 115,
+      "total_R": 29.1921,
+      "profit_factor": 1.4357,
+      "win_rate_pct": 41.7391,
+      "average_R": 0.2538,
+      "max_drawdown_R": -12.0
+    }
+  ],
+  "G_exit_distribution": {
+    "gap_target": {
+      "trades": 3,
+      "total_R": 6.2644,
+      "profit_factor": null,
+      "win_rate_pct": 100.0,
+      "average_R": 2.0881,
+      "max_drawdown_R": 0.0,
+      "pct_of_total_R": 19.4157,
+      "avg_holding_days": 8.6667
+    },
+    "stop": {
+      "trades": 66,
+      "total_R": -66.0,
+      "profit_factor": 0.0,
+      "win_rate_pct": 0.0,
+      "average_R": -1.0,
+      "max_drawdown_R": -65.0,
+      "pct_of_total_R": -204.56,
+      "avg_holding_days": 5.6364
+    },
+    "target": {
+      "trades": 46,
+      "total_R": 92.0,
+      "profit_factor": null,
+      "win_rate_pct": 100.0,
+      "average_R": 2.0,
+      "max_drawdown_R": 0.0,
+      "pct_of_total_R": 285.1443,
+      "avg_holding_days": 11.3043
+    }
+  },
+  "H_concurrency": {
+    "overlapping_trades": 52,
+    "max_concurrent": 6,
+    "avg_concurrent": 1.7478,
+    "by_level": {
+      "1": {
+        "trades": 63,
+        "total_R": 18.2644,
+        "profit_factor": 1.5073,
+        "win_rate_pct": 42.8571,
+        "average_R": 0.2899,
+        "max_drawdown_R": -5.0,
+        "pct_of_total_R": 56.6085
+      },
+      "2": {
+        "trades": 31,
+        "total_R": -7.0,
+        "profit_factor": 0.6957,
+        "win_rate_pct": 25.8065,
+        "average_R": -0.2258,
+        "max_drawdown_R": -14.0,
+        "pct_of_total_R": -21.6958
+      },
+      "3": {
+        "trades": 12,
+        "total_R": 9.0,
+        "profit_factor": 2.8,
+        "win_rate_pct": 58.3333,
+        "average_R": 0.75,
+        "max_drawdown_R": -2.0,
+        "pct_of_total_R": 27.8946
+      },
+      "4+": {
+        "trades": 9,
+        "total_R": 12.0,
+        "profit_factor": 7.0,
+        "win_rate_pct": 77.7778,
+        "average_R": 1.3333,
+        "max_drawdown_R": -1.0,
+        "pct_of_total_R": 37.1927
+      }
+    },
+    "single_position_diagnostic_subset": {
+      "trades": 84,
+      "total_R": 27.2644,
+      "profit_factor": 1.5801,
+      "win_rate_pct": 44.0476,
+      "average_R": 0.3246,
+      "max_drawdown_R": -6.0
+    },
+    "single_position_note": "greedy earliest-entry non-overlapping subset of the SAME golden ledger; diagnostic comparison only, not a candidate"
+  },
+  "I_trade_order_robustness": {
+    "permutations": 10000,
+    "seed": 20260926,
+    "terminal_R": 32.2644,
+    "terminal_R_note": "order-invariant (sum)",
+    "actual_order_max_dd": -12.0,
+    "max_dd_percentiles": {
+      "p5": -14.0,
+      "p25": -10.9909,
+      "median": -9.0,
+      "p75": -7.0,
+      "p95": -6.0
+    },
+    "max_dd_worse_than_actual_pct": 14.68,
+    "longest_losing_streak_percentiles": {
+      "p5": 5,
+      "median": 7,
+      "p95": 11
+    },
+    "actual_longest_losing_streak": 7
+  },
+  "J_walkforward_descriptive": {
+    "windows": [
+      {
+        "anchor": 2004,
+        "train_years": "2004-2008",
+        "val_year": 2009,
+        "test_year": 2010,
+        "train": {
+          "trades": 25,
+          "total_R": -0.9909,
+          "profit_factor": 0.9417,
+          "win_rate_pct": 32.0,
+          "average_R": -0.0396,
+          "max_drawdown_R": -9.0
+        },
+        "validation": {
+          "trades": 11,
+          "total_R": 4.0,
+          "profit_factor": 1.6667,
+          "win_rate_pct": 45.4545,
+          "average_R": 0.3636,
+          "max_drawdown_R": -2.0
+        },
+        "test": {
+          "trades": 2,
+          "total_R": 1.0,
+          "profit_factor": 2.0,
+          "win_rate_pct": 50.0,
+          "average_R": 0.5,
+          "max_drawdown_R": -1.0
+        }
+      },
+      {
+        "anchor": 2005,
+        "train_years": "2005-2009",
+        "val_year": 2010,
+        "test_year": 2011,
+        "train": {
+          "trades": 34,
+          "total_R": 5.0091,
+          "profit_factor": 1.2385,
+          "win_rate_pct": 38.2353,
+          "average_R": 0.1473,
+          "max_drawdown_R": -9.0
+        },
+        "validation": {
+          "trades": 2,
+          "total_R": 1.0,
+          "profit_factor": 2.0,
+          "win_rate_pct": 50.0,
+          "average_R": 0.5,
+          "max_drawdown_R": -1.0
+        },
+        "test": {
+          "trades": 5,
+          "total_R": 1.0,
+          "profit_factor": 1.3333,
+          "win_rate_pct": 40.0,
+          "average_R": 0.2,
+          "max_drawdown_R": -2.0
+        }
+      },
+      {
+        "anchor": 2006,
+        "train_years": "2006-2010",
+        "val_year": 2011,
+        "test_year": 2012,
+        "train": {
+          "trades": 35,
+          "total_R": 4.0091,
+          "profit_factor": 1.1822,
+          "win_rate_pct": 37.1429,
+          "average_R": 0.1145,
+          "max_drawdown_R": -9.0
+        },
+        "validation": {
+          "trades": 5,
+          "total_R": 1.0,
+          "profit_factor": 1.3333,
+          "win_rate_pct": 40.0,
+          "average_R": 0.2,
+          "max_drawdown_R": -2.0
+        },
+        "test": {
+          "trades": 4,
+          "total_R": 2.089,
+          "profit_factor": 2.0445,
+          "win_rate_pct": 50.0,
+          "average_R": 0.5222,
+          "max_drawdown_R": -1.0
+        }
+      },
+      {
+        "anchor": 2007,
+        "train_years": "2007-2011",
+        "val_year": 2012,
+        "test_year": 2013,
+        "train": {
+          "trades": 33,
+          "total_R": 3.0091,
+          "profit_factor": 1.1433,
+          "win_rate_pct": 36.3636,
+          "average_R": 0.0912,
+          "max_drawdown_R": -7.0
+        },
+        "validation": {
+          "trades": 4,
+          "total_R": 2.089,
+          "profit_factor": 2.0445,
+          "win_rate_pct": 50.0,
+          "average_R": 0.5222,
+          "max_drawdown_R": -1.0
+        },
+        "test": {
+          "trades": 8,
+          "total_R": 7.0,
+          "profit_factor": 3.3333,
+          "win_rate_pct": 62.5,
+          "average_R": 0.875,
+          "max_drawdown_R": -3.0
+        }
+      },
+      {
+        "anchor": 2008,
+        "train_years": "2008-2012",
+        "val_year": 2013,
+        "test_year": 2014,
+        "train": {
+          "trades": 28,
+          "total_R": 5.0981,
+          "profit_factor": 1.2999,
+          "win_rate_pct": 39.2857,
+          "average_R": 0.1821,
+          "max_drawdown_R": -4.0
+        },
+        "validation": {
+          "trades": 8,
+          "total_R": 7.0,
+          "profit_factor": 3.3333,
+          "win_rate_pct": 62.5,
+          "average_R": 0.875,
+          "max_drawdown_R": -3.0
+        },
+        "test": {
+          "trades": 3,
+          "total_R": -3.0,
+          "profit_factor": 0.0,
+          "win_rate_pct": 0.0,
+          "average_R": -1.0,
+          "max_drawdown_R": -2.0
+        }
+      },
+      {
+        "anchor": 2009,
+        "train_years": "2009-2013",
+        "val_year": 2014,
+        "test_year": 2015,
+        "train": {
+          "trades": 30,
+          "total_R": 15.089,
+          "profit_factor": 2.0059,
+          "win_rate_pct": 50.0,
+          "average_R": 0.503,
+          "max_drawdown_R": -3.0
+        },
+        "validation": {
+          "trades": 3,
+          "total_R": -3.0,
+          "profit_factor": 0.0,
+          "win_rate_pct": 0.0,
+          "average_R": -1.0,
+          "max_drawdown_R": -2.0
+        },
+        "test": {
+          "trades": 1,
+          "total_R": 2.0,
+          "profit_factor": null,
+          "win_rate_pct": 100.0,
+          "average_R": 2.0,
+          "max_drawdown_R": 0.0
+        }
+      },
+      {
+        "anchor": 2010,
+        "train_years": "2010-2014",
+        "val_year": 2015,
+        "test_year": 2016,
+        "train": {
+          "trades": 22,
+          "total_R": 8.089,
+          "profit_factor": 1.6741,
+          "win_rate_pct": 45.4545,
+          "average_R": 0.3677,
+          "max_drawdown_R": -3.0
+        },
+        "validation": {
+          "trades": 1,
+          "total_R": 2.0,
+          "profit_factor": null,
+          "win_rate_pct": 100.0,
+          "average_R": 2.0,
+          "max_drawdown_R": 0.0
+        },
+        "test": {
+          "trades": 4,
+          "total_R": 2.0,
+          "profit_factor": 2.0,
+          "win_rate_pct": 50.0,
+          "average_R": 0.5,
+          "max_drawdown_R": -1.0
+        }
+      },
+      {
+        "anchor": 2011,
+        "train_years": "2011-2015",
+        "val_year": 2016,
+        "test_year": 2017,
+        "train": {
+          "trades": 21,
+          "total_R": 9.089,
+          "profit_factor": 1.8263,
+          "win_rate_pct": 47.619,
+          "average_R": 0.4328,
+          "max_drawdown_R": -3.0
+        },
+        "validation": {
+          "trades": 4,
+          "total_R": 2.0,
+          "profit_factor": 2.0,
+          "win_rate_pct": 50.0,
+          "average_R": 0.5,
+          "max_drawdown_R": -1.0
+        },
+        "test": {
+          "trades": 7,
+          "total_R": 8.0,
+          "profit_factor": 5.0,
+          "win_rate_pct": 71.4286,
+          "average_R": 1.1429,
+          "max_drawdown_R": -2.0
+        }
+      },
+      {
+        "anchor": 2012,
+        "train_years": "2012-2016",
+        "val_year": 2017,
+        "test_year": 2018,
+        "train": {
+          "trades": 20,
+          "total_R": 10.089,
+          "profit_factor": 2.0089,
+          "win_rate_pct": 50.0,
+          "average_R": 0.5044,
+          "max_drawdown_R": -3.0
+        },
+        "validation": {
+          "trades": 7,
+          "total_R": 8.0,
+          "profit_factor": 5.0,
+          "win_rate_pct": 71.4286,
+          "average_R": 1.1429,
+          "max_drawdown_R": -2.0
+        },
+        "test": {
+          "trades": 8,
+          "total_R": 1.1662,
+          "profit_factor": 1.2332,
+          "win_rate_pct": 37.5,
+          "average_R": 0.1458,
+          "max_drawdown_R": -5.0
+        }
+      },
+      {
+        "anchor": 2013,
+        "train_years": "2013-2017",
+        "val_year": 2018,
+        "test_year": 2019,
+        "train": {
+          "trades": 23,
+          "total_R": 16.0,
+          "profit_factor": 2.6,
+          "win_rate_pct": 56.5217,
+          "average_R": 0.6957,
+          "max_drawdown_R": -3.0
+        },
+        "validation": {
+          "trades": 8,
+          "total_R": 1.1662,
+          "profit_factor": 1.2332,
+          "win_rate_pct": 37.5,
+          "average_R": 0.1458,
+          "max_drawdown_R": -5.0
+        },
+        "test": {
+          "trades": 0,
+          "total_R": 0.0,
+          "profit_factor": null,
+          "win_rate_pct": null,
+          "average_R": null,
+          "max_drawdown_R": 0.0
+        }
+      },
+      {
+        "anchor": 2014,
+        "train_years": "2014-2018",
+        "val_year": 2019,
+        "test_year": 2020,
+        "train": {
+          "trades": 23,
+          "total_R": 10.1662,
+          "profit_factor": 1.8472,
+          "win_rate_pct": 47.8261,
+          "average_R": 0.442,
+          "max_drawdown_R": -5.0
+        },
+        "validation": {
+          "trades": 0,
+          "total_R": 0.0,
+          "profit_factor": null,
+          "win_rate_pct": null,
+          "average_R": null,
+          "max_drawdown_R": 0.0
+        },
+        "test": {
+          "trades": 7,
+          "total_R": -4.0,
+          "profit_factor": 0.3333,
+          "win_rate_pct": 14.2857,
+          "average_R": -0.5714,
+          "max_drawdown_R": -4.0
+        }
+      },
+      {
+        "anchor": 2015,
+        "train_years": "2015-2019",
+        "val_year": 2020,
+        "test_year": 2021,
+        "train": {
+          "trades": 20,
+          "total_R": 13.1662,
+          "profit_factor": 2.4629,
+          "win_rate_pct": 55.0,
+          "average_R": 0.6583,
+          "max_drawdown_R": -5.0
+        },
+        "validation": {
+          "trades": 7,
+          "total_R": -4.0,
+          "profit_factor": 0.3333,
+          "win_rate_pct": 14.2857,
+          "average_R": -0.5714,
+          "max_drawdown_R": -4.0
+        },
+        "test": {
+          "trades": 5,
+          "total_R": -2.0,
+          "profit_factor": 0.5,
+          "win_rate_pct": 20.0,
+          "average_R": -0.4,
+          "max_drawdown_R": -2.0
+        }
+      },
+      {
+        "anchor": 2016,
+        "train_years": "2016-2020",
+        "val_year": 2021,
+        "test_year": 2022,
+        "train": {
+          "trades": 26,
+          "total_R": 7.1662,
+          "profit_factor": 1.4777,
+          "win_rate_pct": 42.3077,
+          "average_R": 0.2756,
+          "max_drawdown_R": -9.0
+        },
+        "validation": {
+          "trades": 5,
+          "total_R": -2.0,
+          "profit_factor": 0.5,
+          "win_rate_pct": 20.0,
+          "average_R": -0.4,
+          "max_drawdown_R": -2.0
+        },
+        "test": {
+          "trades": 0,
+          "total_R": 0.0,
+          "profit_factor": null,
+          "win_rate_pct": null,
+          "average_R": null,
+          "max_drawdown_R": 0.0
+        }
+      },
+      {
+        "anchor": 2017,
+        "train_years": "2017-2021",
+        "val_year": 2022,
+        "test_year": 2023,
+        "train": {
+          "trades": 27,
+          "total_R": 3.1662,
+          "profit_factor": 1.1862,
+          "win_rate_pct": 37.037,
+          "average_R": 0.1173,
+          "max_drawdown_R": -12.0
+        },
+        "validation": {
+          "trades": 0,
+          "total_R": 0.0,
+          "profit_factor": null,
+          "win_rate_pct": null,
+          "average_R": null,
+          "max_drawdown_R": 0.0
+        },
+        "test": {
+          "trades": 4,
+          "total_R": 5.0,
+          "profit_factor": 6.0,
+          "win_rate_pct": 75.0,
+          "average_R": 1.25,
+          "max_drawdown_R": -1.0
+        }
+      },
+      {
+        "anchor": 2018,
+        "train_years": "2018-2022",
+        "val_year": 2023,
+        "test_year": 2024,
+        "train": {
+          "trades": 20,
+          "total_R": -4.8338,
+          "profit_factor": 0.6777,
+          "win_rate_pct": 25.0,
+          "average_R": -0.2417,
+          "max_drawdown_R": -12.0
+        },
+        "validation": {
+          "trades": 4,
+          "total_R": 5.0,
+          "profit_factor": 6.0,
+          "win_rate_pct": 75.0,
+          "average_R": 1.25,
+          "max_drawdown_R": -1.0
+        },
+        "test": {
+          "trades": 5,
+          "total_R": 1.0,
+          "profit_factor": 1.3333,
+          "win_rate_pct": 40.0,
+          "average_R": 0.2,
+          "max_drawdown_R": -1.0
+        }
+      },
+      {
+        "anchor": 2019,
+        "train_years": "2019-2023",
+        "val_year": 2024,
+        "test_year": 2025,
+        "train": {
+          "trades": 16,
+          "total_R": -1.0,
+          "profit_factor": 0.9091,
+          "win_rate_pct": 31.25,
+          "average_R": -0.0625,
+          "max_drawdown_R": -7.0
+        },
+        "validation": {
+          "trades": 5,
+          "total_R": 1.0,
+          "profit_factor": 1.3333,
+          "win_rate_pct": 40.0,
+          "average_R": 0.2,
+          "max_drawdown_R": -1.0
+        },
+        "test": {
+          "trades": 13,
+          "total_R": 11.0,
+          "profit_factor": 3.2,
+          "win_rate_pct": 61.5385,
+          "average_R": 0.8462,
+          "max_drawdown_R": -3.0
+        }
+      }
+    ],
+    "pooled_test_2010_2025": {
+      "trades": 76,
+      "total_R": 32.2552,
+      "profit_factor": 1.8064,
+      "win_rate_pct": 47.3684,
+      "average_R": 0.4244,
+      "max_drawdown_R": -12.0
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "integrity": {
+    "golden_reference_sha256": "b0d84b156674a2d81e646acdeae014324e85f9906ce3e1071718269612454e95",
+    "dataset_sha256": "e0676d9232c87be36aed5db2317b0c80f3838b5e9d517afb319f092aa8fd0d52",
+    "ledger_sha256": "30d22be417fbdd0d3db011bce4b0ac2f785f088d30a8dc10900905e7ae2f70d0",
+    "ledger_byte_identical": true,
+    "python": "3.14.7",
+    "pandas": "3.0.6",
+    "numpy": "2.5.3"
+  },
+  "windows": 16,
+  "test_year_range": "2010-2025",
+  "test_only_aggregate": {
+    "total_trades": 76,
+    "total_R": 32.2552,
+    "profit_factor": 1.8064,
+    "win_rate_pct": 47.3684,
+    "average_R": 0.4244,
+    "median_R": -1.0,
+    "max_drawdown_R": -12.0,
+    "maximum_losing_streak": 7,
+    "profitable_test_windows": 11,
+    "losing_test_windows": 3,
+    "flat_test_windows": 2,
+    "pct_profitable_windows": 68.75
+  },
+  "test_window_distribution": {
+    "best_test_window_R": 11.0,
+    "best_test_year": 2025,
+    "worst_test_window_R": -4.0,
+    "worst_test_year": 2020,
+    "median_test_window_R": 1.0831,
+    "mean_test_window_R": 2.016,
+    "std_test_window_R": 3.9975,
+    "pct_positive_windows": 68.75,
+    "cumulative_test_R": 32.2552,
+    "top1_window_share_of_cum_R": 0.341,
+    "top2_windows_share_of_cum_R": 0.5891,
+    "cum_R_excluding_best_window": 21.2552,
+    "cum_R_excluding_best_two_windows": 13.2552
+  },
+  "multi_position_oos": {
+    "max_simultaneous_positions": 6,
+    "avg_simultaneous_positions": 1.7368,
+    "overlapping_trades": 35,
+    "oos_R_from_overlapping_trades": 13.0,
+    "oos_R_from_single_trades": 19.2552,
+    "pct_of_oos_total_R_from_overlaps": 40.3035
+  },
+  "oos_trades_file_sha256": "f505620478c49c81bd422b4d488ae25a387b2d6a65fb019c792d6c824adea06b",
+  "oos_equity_file_sha256": "938d7053f02658da7497c80f6095e43fcebc5ca73897a278a975ca2c7de37c64",
+  "walk_forward_csv_sha256": "892d45c375f3553c3cf9bcabcfb075601a6d1e4e5e1c3ddd724850ccf1fb485a"
+}

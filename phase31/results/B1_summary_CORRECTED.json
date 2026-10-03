@@ -1,0 +1,42 @@
+{
+  "experiment": "B1 (corrected) \u2014 trade-sign permutation with shuffle",
+  "protocol_commit": "8c6e5f10eb055d2616320068bda9e56ac365dd25",
+  "original_execution_commit": "76e9c3eab3a179dd6d21c5556c74d97a9fa451a0",
+  "forensic_correction_commit": "6c95d0123db7af028c1cbdca28619d361ce7746d",
+  "input_ledger": "phase21_experiment_results/phase21_trades.csv",
+  "input_ledger_sha256": "30d22be417fbdd0d3db011bce4b0ac2f785f088d30a8dc10900905e7ae2f70d0",
+  "n_trades": 115,
+  "seed": 20260929,
+  "rng": "numpy.random.default_rng(20260929) \u2014 single RNG for sign randomization and shuffle",
+  "permutations": 10000,
+  "sign_probability": 0.5,
+  "shuffle_performed": true,
+  "shuffle_detail": "pandas Series.sample(frac=1.0, random_state=rng) after sign randomization, before metrics \u2014 the step omitted by the original execution",
+  "null_total_R_pctl": {
+    "1": -38.0864,
+    "5": -26.2461,
+    "25": -10.2461,
+    "50": 0.0864,
+    "75": 11.7356,
+    "95": 26.2644,
+    "99": 37.9319
+  },
+  "observed_total_R": 32.2644,
+  "observed_percentile_total_R": 97.73,
+  "p_null_ge_observed": 0.0227,
+  "null_maxDD_pctl": {
+    "1": -43.9327,
+    "5": -34.2644,
+    "25": -23.0981,
+    "50": -17.0,
+    "75": -12.8338,
+    "95": -8.7961,
+    "99": -7.0
+  },
+  "observed_maxDD_R": -12.0,
+  "observed_percentile_maxDD": 80.14,
+  "null_max_losing_streak_p50": 6,
+  "null_max_losing_streak_p95": 10,
+  "interpretation_guard": "Descriptive reference distribution under the stated fair-coin sign-randomization model; NOT a definitive p-value for the strategy (preregistered guard, binding).",
+  "corrective_rerun_note": "Corrective rerun of the preregistered B1 method, not the original preregistered execution and not a replacement of it; the original B1 artifacts remain preserved untouched. No other Phase-31 family was rerun."
+}

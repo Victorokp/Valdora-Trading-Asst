@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* ============================================================
+   VALDORA design tokens (32C design system foundation)
+   Dark-first premium quantitative-trading theme.
+   Single accent + semantic green/red. Restrained borders.
+   ============================================================ */
+
+@theme {
+  /* Surfaces */
+  --color-page: #06090f; /* page background */
+  --color-surface: #0b111b; /* elevated surface */
+  --color-card: #0e1521; /* card */
+  --color-input: #0a101a; /* input */
+  --color-nav: #080d15; /* navigation */
+  --color-modal: #111a28; /* modal / popover */
+
+  /* Borders */
+  --color-line: #1c2736;
+  --color-line-strong: #2a3850;
+
+  /* Text */
+  --color-ink: #e8edf5;
+  --color-ink-secondary: #b7c2d4;
+  --color-muted: #8493aa;
+  --color-faint: #5c6a80;
+
+  /* Accent (single brand accent) */
+  --color-accent: #4ea1d3;
+  --color-accent-strong: #7ec3ec;
+  --color-accent-dim: #173045;
+
+  /* Semantic states */
+  --color-positive: #4cba7d;
+  --color-negative: #e0655f;
+  --color-caution: #d9a44a;
+  --color-neutral: #8493aa;
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* Radii */
+  --radius-card: 0.875rem;
+  --radius-control: 0.5rem;
+  --radius-pill: 999px;
+
+  /* Motion (used sparingly) */
+  --animate-rise: rise 240ms ease-out both;
+  --animate-pulse-dot: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-sweep: sweep 1.4s ease-in-out infinite;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+  @keyframes sweep {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-page);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: rgba(78, 161, 211, 0.32);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #223045;
+    border-radius: 999px;
+    border: 2px solid var(--color-page);
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+/* Numerical / data text: tabular figures, monospaced alignment */
+@utility numeric {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Faint engineering grid used on empty chart surfaces */
+@utility page-grid {
+  background-image:
+    linear-gradient(to right, rgba(88, 183, 227, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(88, 183, 227, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "oos_descriptives": {
+    "n": 76,
+    "mean_R": 0.4244,
+    "median_R": -1.0,
+    "std_R": 1.5116,
+    "skewness": 0.1082,
+    "win_rate_pct": 47.3684,
+    "payoff_ratio_avgWin_over_avgLoss": 2.0071,
+    "profit_factor": 1.8064,
+    "expectancy_R_per_trade": 0.4244,
+    "max_drawdown_R": -12.0,
+    "maximum_losing_streak": 7
+  },
+  "temporal_by_entry_year": {
+    "2010": {
+      "trades": 2,
+      "wins": 1,
+      "losses": 1,
+      "win_rate_pct": 50.0,
+      "profit_factor": 2.0,
+      "total_R": 1.0,
+      "max_drawdown_R": -1.0,
+      "small_sample_flag": true
+    },
+    "2011": {
+      "trades": 5,
+      "wins": 2,
+      "losses": 3,
+      "win_rate_pct": 40.0,
+      "profit_factor": 1.3333,
+      "total_R": 1.0,
+      "max_drawdown_R": -2.0,
+      "small_sample_flag": true
+    },
+    "2012": {
+      "trades": 4,
+      "wins": 2,
+      "losses": 2,
+      "win_rate_pct": 50.0,
+      "profit_factor": 2.0445,
+      "total_R": 2.089,
+      "max_drawdown_R": -1.0,
+      "small_sample_flag": true
+    },
+    "2013": {
+      "trades": 8,
+      "wins": 5,
+      "losses": 3,
+      "win_rate_pct": 62.5,
+      "profit_factor": 3.3333,
+      "total_R": 7.0,
+      "max_drawdown_R": -3.0,
+      "small_sample_flag": true
+    },
+    "2014": {
+      "trades": 3,
+      "wins": 0,
+      "losses": 3,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "total_R": -3.0,
+      "max_drawdown_R": -2.0,
+      "small_sample_flag": true
+    },
+    "2015": {
+      "trades": 1,
+      "wins": 1,
+      "losses": 0,
+      "win_rate_pct": 100.0,
+      "profit_factor": null,
+      "total_R": 2.0,
+      "max_drawdown_R": 0.0,
+      "small_sample_flag": true
+    },
+    "2016": {
+      "trades": 4,
+      "wins": 2,
+      "losses": 2,
+      "win_rate_pct": 50.0,
+      "profit_factor": 2.0,
+      "total_R": 2.0,
+      "max_drawdown_R": -1.0,
+      "small_sample_flag": true
+    },
+    "2017": {
+      "trades": 7,
+      "wins": 5,
+      "losses": 2,
+      "win_rate_pct": 71.4286,
+      "profit_factor": 5.0,
+      "total_R": 8.0,
+      "max_drawdown_R": -2.0,
+      "small_sample_flag": true
+    },
+    "2018": {
+      "trades": 8,
+      "wins": 3,
+      "losses": 5,
+      "win_rate_pct": 37.5,
+      "profit_factor": 1.2332,
+      "total_R": 1.1662,
+      "max_drawdown_R": -5.0,
+      "small_sample_flag": true
+    },
+    "2020": {
+      "trades": 7,
+      "wins": 1,
+      "losses": 6,
+      "win_rate_pct": 14.2857,
+      "profit_factor": 0.3333,
+      "total_R": -4.0,
+      "max_drawdown_R": -4.0,
+      "small_sample_flag": true
+    },
+    "2021": {
+      "trades": 5,
+      "wins": 1,
+      "losses": 4,
+      "win_rate_pct": 20.0,
+      "profit_factor": 0.5,
+      "total_R": -2.0,
+      "max_drawdown_R": -2.0,
+      "small_sample_flag": true
+    },
+    "2023": {
+      "trades": 4,
+      "wins": 3,
+      "losses": 1,
+      "win_rate_pct": 75.0,
+      "profit_factor": 6.0,
+      "total_R": 5.0,
+      "max_drawdown_R": -1.0,
+      "small_sample_flag": true
+    },
+    "2024": {
+      "trades": 5,
+      "wins": 2,
+      "losses": 3,
+      "win_rate_pct": 40.0,
+      "profit_factor": 1.3333,
+      "total_R": 1.0,
+      "max_drawdown_R": -1.0,
+      "small_sample_flag": true
+    },
+    "2025": {
+      "trades": 13,
+      "wins": 8,
+      "losses": 5,
+      "win_rate_pct": 61.5385,
+      "profit_factor": 3.2,
+      "total_R": 11.0,
+      "max_drawdown_R": -3.0,
+      "small_sample_flag": false
+    }
+  },
+  "regime_conditional_oos": {
+    "vol_regime_atr_pct": {
+      "low": {
+        "trades": 5,
+        "total_R": -2.0,
+        "profit_factor": 0.5,
+        "win_rate_pct": 20.0,
+        "max_drawdown_R": -3.0
+      },
+      "mid": {
+        "trades": 63,
+        "total_R": 30.2552,
+        "profit_factor": 1.9455,
+        "win_rate_pct": 49.2063,
+        "max_drawdown_R": -10.0
+      },
+      "high": {
+        "trades": 8,
+        "total_R": 4.0,
+        "profit_factor": 2.0,
+        "win_rate_pct": 50.0,
+        "max_drawdown_R": -2.0
+      }
+    },
+    "atr_pctile_100": {
+      "below_33": {
+        "trades": 39,
+        "total_R": 6.089,
+        "profit_factor": 1.2537,
+        "win_rate_pct": 38.4615,
+        "max_drawdown_R": -10.0
+      },
+      "33_67": {
+        "trades": 18,
+        "total_R": 18.1662,
+        "profit_factor": 4.0277,
+        "win_rate_pct": 66.6667,
+        "max_drawdown_R": -2.0
+      },
+      "above_67": {
+        "trades": 19,
+        "total_R": 8.0,
+        "profit_factor": 1.8,
+        "win_rate_pct": 47.3684,
+        "max_drawdown_R": -4.0
+      }
+    },
+    "trend_strength_ema_gap_atr": {
+      "q1_narrow": {
+        "trades": 26,
+        "total_R": 4.0,
+        "profit_factor": 1.25,
+        "win_rate_pct": 38.4615,
+        "max_drawdown_R": -9.0
+      },
+      "q2": {
+        "trades": 25,
+        "total_R": 8.2552,
+        "profit_factor": 1.5897,
+        "win_rate_pct": 44.0,
+        "max_drawdown_R": -8.0
+      },
+      "q3_wide": {
+        "trades": 25,
+        "total_R": 20.0,
+        "profit_factor": 3.0,
+        "win_rate_pct": 60.0,
+        "max_drawdown_R": -3.0
+      }
+    },
+    "breakout_magnitude_atr": {
+      "q1_small": {
+        "trades": 26,
+        "total_R": 7.0,
+        "profit_factor": 1.4667,
+        "win_rate_pct": 42.3077,
+        "max_drawdown_R": -3.0
+      },
+      "q2": {
+        "trades": 25,
+        "total_R": 14.1662,
+        "profit_factor": 2.1805,
+        "win_rate_pct": 52.0,
+        "max_drawdown_R": -7.0
+      },
+      "q3_large": {
+        "trades": 25,
+        "total_R": 11.089,
+        "profit_factor": 1.853,
+        "win_rate_pct": 48.0,
+        "max_drawdown_R": -4.0
+      }
+    },
+    "weekly_separation": {
+      "below_025pct": {
+        "trades": 11,
+        "total_R": 7.0,
+        "profit_factor": 2.4,
+        "win_rate_pct": 54.5455,
+        "max_drawdown_R": -2.0
+      },
+      "above_025pct": {
+        "trades": 65,
+        "total_R": 25.2552,
+        "profit_factor": 1.7216,
+        "win_rate_pct": 46.1538,
+        "max_drawdown_R": -11.0
+      }
+    }
+  },
+  "concentration_oos": {
+    "oos_total_R": 32.2552,
+    "oos_trades": 76,
+    "total_R_after_removing_best_1": 30.089,
+    "total_R_after_removing_best_3": 26.0,
+    "total_R_after_removing_best_5": 22.0,
+    "total_R_after_removing_best_10": 12.0,
+    "top1_share_of_gross_profit": 0.03
+  },
+  "bootstrap": {
+    "seed": 20280926,
+    "iterations": 10000,
+    "note": "descriptive uncertainty estimate on the OBSERVED OOS R distribution; NOT a prediction interval for future performance and NOT used to modify the strategy",
+    "mean_R": {
+      "p2.5": 0.1053,
+      "p50": 0.4244,
+      "p97.5": 0.7447
+    },
+    "total_R": {
+      "p2.5": 8.0,
+      "p50": 32.2552,
+      "p97.5": 56.5995
+    },
+    "max_drawdown_R": {
+      "p2.5": -13.0,
+      "p50": -6.0,
+      "p97.5": -3.0
+    },
+    "pct_bootstrap_total_R_negative": 0.79
+  },
+  "monte_carlo": {
+    "seed": 20280927,
+    "iterations": 10000,
+    "median_max_DD": -6.0,
+    "p5_max_DD": -10.0,
+    "p95_max_DD": -4.0,
+    "median_longest_losing_streak": 6,
+    "p95_longest_losing_streak": 9,
+    "terminal_cum_R_p2.5": 32.2552,
+    "terminal_cum_R_p97.5": 32.2552,
+    "terminal_cum_R_note": "order-invariant; identical for every permutation of the same trade set"
+  },
+  "cross_pair_secondary": {
+    "GBPUSD": {
+      "full_history": {
+        "trades": 152,
+        "total_R": 4.4012,
+        "profit_factor": 1.044,
+        "win_rate_pct": 34.2105,
+        "max_drawdown_R": -16.0
+      },
+      "oos_2010_2025": {
+        "trades": 101,
+        "total_R": 19.0,
+        "profit_factor": 1.3115,
+        "win_rate_pct": 39.604,
+        "max_drawdown_R": -11.0
+      },
+      "note": "secondary question; no pair-specific tuning"
+    },
+    "USDJPY": {
+      "full_history": {
+        "trades": 118,
+        "total_R": 5.0,
+        "profit_factor": 1.0649,
+        "win_rate_pct": 34.7458,
+        "max_drawdown_R": -16.0
+      },
+      "oos_2010_2025": {
+        "trades": 88,
+        "total_R": 5.0,
+        "profit_factor": 1.0877,
+        "win_rate_pct": 35.2273,
+        "max_drawdown_R": -16.0
+      },
+      "note": "secondary question; no pair-specific tuning"
+    },
+    "AUDUSD": {
+      "full_history": {
+        "trades": 123,
+        "total_R": -8.9756,
+        "profit_factor": 0.8944,
+        "win_rate_pct": 30.8943,
+        "max_drawdown_R": -23.0
+      },
+      "oos_2010_2025": {
+        "trades": 73,
+        "total_R": -16.0,
+        "profit_factor": 0.7037,
+        "win_rate_pct": 26.0274,
+        "max_drawdown_R": -22.0
+      },
+      "note": "secondary question; no pair-specific tuning"
+    }
+  },
+  "c3_comparison": {
+    "status": "rejected Phase-27 candidate; frozen constants; no tuning",
+    "control_oos": {
+      "trades": 76,
+      "total_R": 32.2552,
+      "profit_factor": 1.8064,
+      "win_rate_pct": 47.3684,
+      "max_drawdown_R": -12.0
+    },
+    "c3_oos_subset": {
+      "trades": 57,
+      "total_R": 30.1662,
+      "profit_factor": 2.0774,
+      "win_rate_pct": 50.8772,
+      "max_drawdown_R": -7.0
+    },
+    "excluded_oos_trades": 19
+  },
+  "seeds": {
+    "bootstrap": 20280926,
+    "monte_carlo": 20280927
+  }
+}

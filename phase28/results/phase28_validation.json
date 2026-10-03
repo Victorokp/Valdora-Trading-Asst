@@ -1,0 +1,40 @@
+{
+  "data_integrity": {
+    "rows": 5914,
+    "first_date": "2003-12-01",
+    "last_date": "2026-09-25",
+    "duplicate_dates": 0,
+    "chronological_order": true,
+    "missing_ohlc_rows": 0,
+    "nonpositive_rows": 0,
+    "high_lt_low_rows": 0,
+    "high_lt_open_or_close": 0,
+    "low_gt_open_or_close": 0,
+    "weekend_rows": 0,
+    "largest_calendar_gap_days": 4,
+    "no_future_rows_note": "ledger rows are a subset of this file's dates; verified by trade-date membership",
+    "ledger_dates_missing_from_dataset": 0
+  },
+  "lookahead_audit": {
+    "method": "full pipeline rebuilt from data truncated at each signal day; signal must be identical from signal-day-close information alone",
+    "signals_checked": 76,
+    "failures": [],
+    "result": "PASS"
+  },
+  "entry_timing_audit": {
+    "trades_checked": 76,
+    "entry_matches_next_open_plus_friction": 76,
+    "mismatches": [],
+    "result": "PASS"
+  },
+  "split_boundary_audit": {
+    "rule": "historical: bucket by ENTRY date; train <= 2019-11-20 < validation <= 2023-04-23 < final; exit dates never re-bucket a trade (Golden Reference semantics)",
+    "split_assignment_matches_rule": true,
+    "train_trades_exiting_after_train_end": 0,
+    "validation_trades_exiting_after_val_end": 0,
+    "straddle_note": "trades whose exit falls in a later period remain in their entry-date bucket (historical convention); no information transfers backward because bucketing is by entry date only",
+    "ambiguity_discovered": false,
+    "result": "PASS"
+  },
+  "overall": "PASS"
+}
